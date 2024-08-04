@@ -1,26 +1,32 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
     return (
         <>
         <nav className="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
-                <a href="index.html" className="navbar-brand d-flex d-lg-none">
+                <Link to="/" className="navbar-brand d-flex d-lg-none">
                     <h1 className="m-0 display-4 text-secondary"><span className="text-white">The</span>Garden</h1>
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav mx-auto py-0">
-                        <a href="#" className="nav-item nav-link active">Home</a>
-                        <a href="#" className="nav-item nav-link">About</a>
+                        <Link to="/" className="nav-item nav-link">Home</Link>
+                        <Link to="/about" className="nav-item nav-link">About</Link>
+                        <Link to="/services" className="nav-item nav-link">Services</Link>
+                        <Link to="/features" className="nav-item nav-link">Features</Link>
+                        <Link to="/team" className="nav-item nav-link">Team</Link>
+                        <Link to="/blog" className="nav-item nav-link">Blog</Link>
                         <div className="nav-item dropdown">
-                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Produce</a>
+                            <Link to="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Produce</Link>
                             <div className="dropdown-menu m-0">
-                                <a href="#" className="dropdown-item">Vegetables</a>
-                                <a href="#" className="dropdown-item">Fruits</a>
+                                <Link to="/vegatables" className="dropdown-item">Vegetables</Link>
+                                <Link to="/fruits" className="dropdown-item">Fruits</Link>
                             </div>
                         </div>
-                        <a href="#" className="nav-item nav-link">Login</a>
-                        <a href="#" className="nav-item nav-link">Register</a>
+                        <Link to="/login" className="nav-item nav-link">Login</Link>
+                        <Link to="/register" className="nav-item nav-link">Register</Link>
                     </div>
                 </div>
             </nav>
