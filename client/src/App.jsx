@@ -1,3 +1,6 @@
+
+
+import { Route, Routes } from "react-router-dom"
 import About from "./componnents/about/About"
 import Banner from "./componnents/banner/Banner"
 import Blog from "./componnents/blog/Blog"
@@ -12,26 +15,24 @@ import Team from "./team/Team"
 function App() {
     return (
         <>
-            <Topbar />
+            <div className="box">
+                <Topbar />
 
-            <Navbar />
+                <Navbar />
 
-            <Corusel />
+                <div className="main-content">
+                    <Routes>
+                        <Route path='/' element={<Corusel />} />
+                        <Route path='/about' element={<About />} />
+                        <Route path='/services' element={<Services />} />
+                        <Route path='/features' element={<Features />} />
+                        <Route path='/team' element={<Team />} />
+                        <Route path='/blog' element={<Blog />} />
+                    </Routes>
+                </div>
 
-            <Banner />
-
-            <About />
-
-            <Services />
-
-            <Features />
-
-            <Team />
-
-            <Blog />
-
-            <Footer />
-            
+                <Footer />
+            </div>
         </>
     )
 }

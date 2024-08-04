@@ -1,3 +1,5 @@
+import Banner from "../banner/Banner";
+
 export default function Corusel() {
     return (
         <>
@@ -37,6 +39,7 @@ export default function Corusel() {
                     </button>
                 </div>
             </div>
+            <Banner />
         </>
     )
 }
