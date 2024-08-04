@@ -11,6 +11,7 @@ import Navbar from "./componnents/navbar/Navbar"
 import Topbar from "./componnents/topbar/Topbar"
 import Services from "./services/Services"
 import Team from "./team/Team"
+import Login from "./componnents/login/Login"
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                         <Route path='/features' element={<Features />} />
                         <Route path='/team' element={<Team />} />
                         <Route path='/blog' element={<Blog />} />
+                        <Route path='/login' element={<Login />} />
                     </Routes>
                 </div>
 
