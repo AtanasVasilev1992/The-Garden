@@ -1,7 +1,6 @@
-
 function App() {
-  return (
-    <>
+    return (
+        <>
             {/* Topbar Start */}
             <div className="container-fluid px-5 d-none d-lg-block">
                 <div className="row gx-5 py-3 align-items-center">
@@ -596,7 +595,7 @@ function App() {
             {/* Back to Top */}
             <a href="#" className="btn btn-secondary py-3 fs-4 back-to-top"><i className="bi bi-arrow-up" /></a>
         </>
-  )
+    )
 }
 
 export default App
