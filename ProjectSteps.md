@@ -20,7 +20,7 @@ SoftUni React Course Project
 - [ ] Add games api
 - [ ] Preseed practice server
 ## 4. Page Implementations
-- [ ] Game list
+- [ ] Garden list
 - [ ] Details
   - [ ] Details link
   - [ ] Details route
@@ -34,7 +34,7 @@ SoftUni React Course Project
 - [ ] Clear form
 ## 6. API Hooks
 - [ ] Form Hook
-- [ ] GameAPI Hooks
+- [ ] GardenAPI Hooks
 - [ ] Comment Hooks
 ## 7. Authentication
 - [ ] Auth API
@@ -54,12 +54,12 @@ SoftUni React Course Project
 - [ ] Authorized Requests
 ## 8. UI Implementation 
 - [ ] Dynamic navigation
-- [ ] Create game
+- [ ] Create garden
   - [ ] API function
   - [ ] Hook
-- [ ] Delete game
-- [ ] Edit game
-- [ ] Latest games
+- [ ] Delete garden
+- [ ] Edit garden
+- [ ] Latest garadens
 ## 9. Refactoring
 - [ ] Extract auth state from App component
 - [ ] Persist auth state
