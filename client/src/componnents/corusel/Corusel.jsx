@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Banner from "../banner/Banner";
 
 export default function Corusel() {
@@ -12,8 +13,8 @@ export default function Corusel() {
                                 <div className="text-start p-5" style={{ maxWidth: '900px' }}>
                                     <h3 className="text-white">Organic Vegetables</h3>
                                     <h1 className="display-1 text-white mb-md-4">Organic Vegetables For Healthy Life</h1>
-                                    <a href className="btn btn-primary py-md-3 px-md-5 me-3">Explore</a>
-                                    <a href className="btn btn-secondary py-md-3 px-md-5">Contact</a>
+                                    <Link to={"/features"} className="btn btn-primary py-md-3 px-md-5 me-3">Explore</Link>
+                                    <Link to={"/team"} className="btn btn-secondary py-md-3 px-md-5">Contact</Link>
                                 </div>
                             </div>
                         </div>
@@ -23,8 +24,8 @@ export default function Corusel() {
                                 <div className="text-start p-5" style={{ maxWidth: '900px' }}>
                                     <h3 className="text-white">Organic Fruits</h3>
                                     <h1 className="display-1 text-white mb-md-4">Organic Fruits For Better Health</h1>
-                                    <a href className="btn btn-primary py-md-3 px-md-5 me-3">Explore</a>
-                                    <a href className="btn btn-secondary py-md-3 px-md-5">Contact</a>
+                                    <Link to={"/features"} className="btn btn-primary py-md-3 px-md-5 me-3">Explore</Link>
+                                    <Link to={"/team"} className="btn btn-secondary py-md-3 px-md-5">Contact</Link>
                                 </div>
                             </div>
                         </div>

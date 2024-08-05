@@ -26,7 +26,7 @@ export default function Footer() {
                                         <Link className="btn btn-secondary btn-square rounded-circle me-2" to="/"><i className="fab fa-twitter" /></Link>
                                         <Link className="btn btn-secondary btn-square rounded-circle me-2" to="/"><i className="fab fa-facebook-f" /></Link>
                                         <Link className="btn btn-secondary btn-square rounded-circle me-2" to="/"><i className="fab fa-linkedin-in" /></Link>
-                                        <Link className="btn btn-secondary btn-square rounded-circle" to="/"><i className="fab fa-instagram" /></Link>
+                                        <Link className="btn btn-secondary btn-square rounded-circle" to="https://github.com/AtanasVasilev1992/The-Garden"><i className="fab fa-github" /></Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -62,11 +62,11 @@ export default function Footer() {
             </div>
             <div className="container-fluid bg-dark text-white py-4">
                 <div className="container text-center">
-                    <p className="mb-0">© <a className="text-secondary fw-bold" href="#">The Garden</a>. All Rights Reserved. Designed by <a className="text-secondary fw-bold" href="#">Atanas Vasilev!</a></p>
+                    <p className="mb-0">© <Link className="text-secondary fw-bold" to="/">The Garden</Link>. All Rights Reserved. Designed by <Link className="text-secondary fw-bold" to="https://github.com/AtanasVasilev1992/The-Garden">Atanas Vasilev!</Link></p>
                 </div>
             </div>
 
-            <a href="#" className="btn btn-secondary py-3 fs-4 back-to-top"><i className="bi bi-arrow-up" /></a>
+            <Link to="#" className="btn btn-secondary py-3 fs-4 back-to-top"><i className="bi bi-arrow-up" /></Link>
         </>
     )
 }
