@@ -12,6 +12,7 @@ import Login from "./componnents/login/Login"
 import Register from "./componnents/register/Register"
 import Services from "./componnents/services/Services"
 import Team from "./componnents/team/Team"
+import Logout from "./componnents/logout/Logout"
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                         <Route path='/blog' element={<Blog />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/register' element={<Register />} />
+                        <Route path='/logout' element={<Logout />} />
                     </Routes>
                 </div>
 

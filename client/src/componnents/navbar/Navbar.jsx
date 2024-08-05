@@ -22,6 +22,7 @@ export default function Navbar() {
                         <Link to="/blog" className="nav-item nav-link">Blog</Link>
                         <Link to="/login" className="nav-item nav-link">Login</Link>
                         <Link to="/register" className="nav-item nav-link">Register</Link>
+                        <Link to="/logout" className="nav-item nav-link">Logout</Link>
                     </div>
                 </div>
             </nav>
