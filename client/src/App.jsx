@@ -8,10 +8,10 @@ import Features from "./componnents/features/Features"
 import Footer from "./componnents/footer/Footer"
 import Navbar from "./componnents/navbar/Navbar"
 import Topbar from "./componnents/topbar/Topbar"
-import Services from "./services/Services"
-import Team from "./team/Team"
 import Login from "./componnents/login/Login"
 import Register from "./componnents/register/Register"
+import Services from "./componnents/services/Services"
+import Team from "./componnents/team/Team"
 
 function App() {
     return (
