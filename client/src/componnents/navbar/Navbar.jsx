@@ -11,7 +11,7 @@ export default function Navbar() {
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
-                    <div className="navbar-nav mx-auto py-0">
+                <div className="navbar-nav mx-auto py-0">
                         <Link to="/" className="nav-item nav-link">Home</Link>
                         <Link to="/about" className="nav-item nav-link">About</Link>
                         <Link to="/services" className="nav-item nav-link">Services</Link>

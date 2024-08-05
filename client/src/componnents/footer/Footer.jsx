@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
     return (
         <>
@@ -10,32 +12,33 @@ export default function Footer() {
                                     <h4 className="text-white mb-4">Get In Touch</h4>
                                     <div className="d-flex mb-2">
                                         <i className="bi bi-geo-alt text-white me-2" />
-                                        <p className="text-white mb-0">123 Street, New York, USA</p>
+                                        <p className="text-white mb-0">123 Street, Varna, BG</p>
                                     </div>
                                     <div className="d-flex mb-2">
                                         <i className="bi bi-envelope-open text-white me-2" />
-                                        <p className="text-white mb-0">info@example.com</p>
+                                        <p className="text-white mb-0">the_garden@abv.bg</p>
                                     </div>
                                     <div className="d-flex mb-2">
                                         <i className="bi bi-telephone text-white me-2" />
-                                        <p className="text-white mb-0">+012 345 67890</p>
+                                        <p className="text-white mb-0">+359 123 456 789</p>
                                     </div>
                                     <div className="d-flex mt-4">
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="#"><i className="fab fa-twitter" /></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="#"><i className="fab fa-facebook-f" /></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle me-2" href="#"><i className="fab fa-linkedin-in" /></a>
-                                        <a className="btn btn-secondary btn-square rounded-circle" href="#"><i className="fab fa-instagram" /></a>
+                                        <Link className="btn btn-secondary btn-square rounded-circle me-2" to="/"><i className="fab fa-twitter" /></Link>
+                                        <Link className="btn btn-secondary btn-square rounded-circle me-2" to="/"><i className="fab fa-facebook-f" /></Link>
+                                        <Link className="btn btn-secondary btn-square rounded-circle me-2" to="/"><i className="fab fa-linkedin-in" /></Link>
+                                        <Link className="btn btn-secondary btn-square rounded-circle" to="/"><i className="fab fa-instagram" /></Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                                    <h4 className="text-white mb-4">Quick Links</h4>
+                                    <h4 className="text-white mb-4">Links</h4>
                                     <div className="d-flex flex-column justify-content-start">
-                                        <a className="text-white mb-2" href="#"><i className="bi bi-arrow-right text-white me-2" />Home</a>
-                                        <a className="text-white mb-2" href="#"><i className="bi bi-arrow-right text-white me-2" />About Us</a>
-                                        <a className="text-white mb-2" href="#"><i className="bi bi-arrow-right text-white me-2" />Our Services</a>
-                                        <a className="text-white mb-2" href="#"><i className="bi bi-arrow-right text-white me-2" />Meet The Team</a>
-                                        <a className="text-white mb-2" href="#"><i className="bi bi-arrow-right text-white me-2" />Latest Blog</a>
-                                        <a className="text-white" href="#"><i className="bi bi-arrow-right text-white me-2" />Contact Us</a>
+                                        <Link className="text-white mb-2" to="/"><i className="bi bi-arrow-right text-white me-2" />Home</Link>
+                                        <Link className="text-white mb-2" to="/about"><i className="bi bi-arrow-right text-white me-2" />About Us</Link>
+                                        <Link className="text-white mb-2" to="/vegetables"><i className="bi bi-arrow-right text-white me-2" />Vegetables</Link>
+                                        <Link className="text-white mb-2" to="/fruits"><i className="bi bi-arrow-right text-white me-2" />Fruits</Link>
+                                        <Link className="text-white mb-2" to="/services"><i className="bi bi-arrow-right text-white me-2" />Our Services</Link>
+                                        <Link className="text-white mb-2" to="/team"><i className="bi bi-arrow-right text-white me-2" />Meet The Team</Link>
+                                        <Link className="text-white mb-2" to="/blog"><i className="bi bi-arrow-right text-white me-2" />Latest Blog</Link>
                                     </div>
                                 </div>
                                 
