@@ -17,7 +17,7 @@ SoftUni React Course Project
 ## 3. Create Service Layer
 - [ ] Service layer architecture disccusion
 - [ ] Abstract requester
-- [ ] Add games api
+- [ ] Add produces api
 - [ ] Preseed practice server
 ## 4. Page Implementations
 - [ ] Garden list
@@ -25,9 +25,9 @@ SoftUni React Course Project
   - [ ] Details link
   - [ ] Details route
   - [] Api function - getOne
-- [ ] Home - Latest Games
-## 5. Comments (Advanced)
-- [ ] Create service for nested resource `comments`
+- [ ] Home - Latest produces
+## 5. Comments (Advanced)?
+- [ ] Create service for nested resource `comments`?
 - [ ] Post comment to server
 - [ ] Read comments from server
 - [ ] Add comments in the component
@@ -35,7 +35,7 @@ SoftUni React Course Project
 ## 6. API Hooks
 - [ ] Form Hook
 - [ ] GardenAPI Hooks
-- [ ] Comment Hooks
+- [ ] Comment Hooks?
 ## 7. Authentication
 - [ ] Auth API
   - [ ] Login
@@ -54,22 +54,22 @@ SoftUni React Course Project
 - [ ] Authorized Requests
 ## 8. UI Implementation 
 - [ ] Dynamic navigation
-- [ ] Create garden
+- [ ] Create produce
   - [ ] API function
   - [ ] Hook
-- [ ] Delete garden
-- [ ] Edit garden
-- [ ] Latest garadens
+- [ ] Delete produce
+- [ ] Edit produce
+- [ ] Latest produce
 ## 9. Refactoring
 - [ ] Extract auth state from App component
 - [ ] Persist auth state
 - [ ] Comments
 - [ ] Refactored comments with useReducer
-- [ ] Rdit and delete ownership rendering
+- [ ] Edit and delete ownership rendering
 - [ ] Add route guards
 
 ## Notes
-  1. Latest Games
-     2. URL `http://localhost:3030/data/games?sortBy=_createdOn%20desc&pageSize=3`
+  1. Latest Produce(vegetables and fruits)
+     2. URL `http://localhost:3030/data/produce?sortBy=_createdOn%20desc&pageSize=3`
      3. USE URLSearchParams
   2. seedData - line 1341 in server.js

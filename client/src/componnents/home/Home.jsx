@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Banner from "../banner/Banner";
 
-export default function Corusel() {
+export default function Home() {
     return (
         <>
         <div className="container-fluid p-0">
