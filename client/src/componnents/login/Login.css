@@ -1,4 +1,8 @@
-label {
+label , span {
     font-size: 1.5em;
     color: #f93;
+}
+
+.tag {
+    color: #F6FFF2;
 }

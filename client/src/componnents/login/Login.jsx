@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
@@ -25,6 +26,9 @@ export default function Login() {
                                         <div className="col-3">
                                             <button className="btn btn-secondary w-100 py-3" type="submit">Login</button>
                                         </div>
+                                        <p className="field">
+                                           <span>If you don't have profile click <Link className='tag' to="/register">here</Link> !</span>
+                                        </p>
                                     </div>
                                 </form>
                             </div>

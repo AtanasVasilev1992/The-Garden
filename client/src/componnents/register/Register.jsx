@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Register.css';
 
 export default function Register() {
@@ -29,6 +30,9 @@ export default function Register() {
                                         <div className="col-3">
                                             <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
                                         </div>
+                                        <p className="field">
+                                           <span>If you already have a profile click <Link className='tag' to="/login">here</Link> !</span>
+                                        </p>
                                     </div>
                                 </form>
                             </div>
