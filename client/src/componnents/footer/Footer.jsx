@@ -65,8 +65,6 @@ export default function Footer() {
                     <p className="mb-0">© <Link className="text-secondary fw-bold" to="/">The Garden</Link>. All Rights Reserved. Designed by <Link className="text-secondary fw-bold" to="https://github.com/AtanasVasilev1992/The-Garden">Atanas Vasilev!</Link></p>
                 </div>
             </div>
-
-            <Link to="#" className="btn btn-secondary py-3 fs-4 back-to-top"><i className="bi bi-arrow-up" /></Link>
         </>
     )
 }

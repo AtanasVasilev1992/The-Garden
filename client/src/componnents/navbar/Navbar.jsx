@@ -15,16 +15,19 @@ function Navbar({ auth }) {
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav mx-auto py-0">
                         <Link to="/" className="nav-item nav-link">Home</Link>
-                        <Link to="/vegatables" className="nav-item nav-link">Vegetables</Link>
-                        <Link to="/fruits" className="nav-item nav-link">Fruits</Link>
                         <Link to="/about" className="nav-item nav-link">About</Link>
                         <Link to="/services" className="nav-item nav-link">Services</Link>
                         <Link to="/features" className="nav-item nav-link">Features</Link>
                         <Link to="/team" className="nav-item nav-link">Team</Link>
-                        <Link to="/blog" className="nav-item nav-link">Blog</Link>
+                        <Link to="/blog" className="nav-item nav-link">Blog</Link>                        
+                        <Link to="/vegetables" className="nav-item nav-link">Vegetables</Link>
+                        <Link to="/fruits" className="nav-item nav-link">Fruits</Link>
                         {isAuthenticated
-                            ? (
+                            ? (<>
+                                <Link to="/vegetables/create" className="nav-item nav-link">Add Vegetable</Link>
+                                <Link to="/fruits/create" className="nav-item nav-link">Add Fruit</Link>
                                 <Link to="/logout" className="nav-item nav-link">Logout</Link>
+                                </>
                             )
                             : (<>
                                 <Link to="/login" className="nav-item nav-link">Login</Link>
@@ -32,6 +35,7 @@ function Navbar({ auth }) {
                                 </>
                             )
                         }
+                        
                     </div>
                 </div>
             </nav>

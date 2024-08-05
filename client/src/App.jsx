@@ -14,6 +14,8 @@ import Register from "./componnents/register/Register"
 import Services from "./componnents/services/Services"
 import Team from "./componnents/team/Team"
 import Logout from "./componnents/logout/Logout"
+import Fruits from "./componnents/fruits/Fruits"
+import Vegetables from "./componnents/vegetables/Vegetables"
 
 function App() {
     return (
@@ -26,6 +28,8 @@ function App() {
                     <div className="main-content">
                         <Routes>
                             <Route path='/' element={<Home />} />
+                            <Route path='/fruits' element={<Fruits />} />
+                            <Route path='/vegetables' element={<Vegetables />} />
                             <Route path='/about' element={<About />} />
                             <Route path='/services' element={<Services />} />
                             <Route path='/features' element={<Features />} />
