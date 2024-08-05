@@ -1,7 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-import './Login.css';
-
 import { useLogin } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
 
@@ -27,7 +25,7 @@ export default function Login() {
             <div className="container-fluid py-5">
                 <div className="container">
                     <div className="mx-auto text-ceneter mb-5" style={{ textAlign: 'left', maxWidth: '400px' }}>
-                        <h1 className="display-5">Login</h1>
+                        <h1 className="display-5" >Login</h1>
                     </div>
                     <div className="row g-0">
                         <div className="col-lg-7">
@@ -36,7 +34,7 @@ export default function Login() {
                                     <div className="row g-3">
 
                                         <div className="col-12">
-                                            <label htmlFor="email">Email:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="email">Email:</label>
                                             <input 
                                                className="form-control bg-light border-0 px-4" 
                                                style={{ height: '55px' }} 
@@ -49,7 +47,7 @@ export default function Login() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label htmlFor="password">Password:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="password">Password:</label>
                                             <input 
                                                 className="form-control bg-light border-0 px-4" 
                                                 style={{ height: '55px' }}
@@ -65,7 +63,7 @@ export default function Login() {
                                             <button className="btn btn-secondary w-100 py-3" type="submit">Login</button>
                                         </div>
                                         <p className="field">
-                                           <span>If you don't have profile click <Link className='tag' to="/register">here</Link> !</span>
+                                           <span style={{ fontSize: "1.5em", color: '#f93'}}>If you don't have profile click <Link style={{ fontSize: "1em", color: '#F6FFF2'}} to="/register">here</Link> !</span>
                                         </p>
                                     </div>
                                 </form>

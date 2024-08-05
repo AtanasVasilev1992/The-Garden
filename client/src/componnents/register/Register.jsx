@@ -1,12 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import './Register.css';
+// import './Register.css';
 
 import { useRegister } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 
-const initialValues = { email: '', password: '', rePassword: '' };
+const initialValues = { email: '',name: '', password: '', rePassword: '' };
 
 export default function Register() {
     const [error, setError] = useState('');
@@ -47,7 +47,7 @@ export default function Register() {
                                     <div className="row g-3">
 
                                         <div className="col-12">
-                                            <label htmlFor="email">Email:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="email">Email:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -60,7 +60,20 @@ export default function Register() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label htmlFor="password">Password:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="name">Name:</label>
+                                            <input 
+                                               className="form-control bg-light border-0 px-4" 
+                                               style={{ height: '55px' }} 
+                                               type="text" 
+                                               name="name" 
+                                               id='name'
+                                               value={values.name}
+                                               onChange={changeHandler}
+                                               placeholder="Alex Ivanov" 
+                                            />
+                                        </div>
+                                        <div className="col-12">
+                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="password">Password:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -73,7 +86,7 @@ export default function Register() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label htmlFor="rePassword">Repeat Password:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="rePassword">Repeat Password:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -94,7 +107,7 @@ export default function Register() {
                                             <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
                                         </div>
                                         <p className="field">
-                                            <span>If you already have a profile click <Link className='tag' to="/login">here</Link> !</span>
+                                            <span style={{ fontSize: "1.5em", color: '#f93'}}>If you already have a profile click <Link style={{ fontSize: "1em", color: '#F6FFF2'}} to="/login">here</Link> !</span>
                                         </p>
                                     </div>
                                 </form>

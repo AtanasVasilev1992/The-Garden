@@ -1,6 +1,7 @@
-
-
 import { Route, Routes } from "react-router-dom"
+
+import { AuthContextProvider } from "./context/authContext"
+
 import About from "./componnents/about/About"
 import Blog from "./componnents/blog/Blog"
 import Home from "./componnents/home/Home"
@@ -16,29 +17,29 @@ import Logout from "./componnents/logout/Logout"
 
 function App() {
     return (
-        <>
-            <div className="box">
-                <Topbar />
+            <AuthContextProvider >
+                <div className="box">
+                    <Topbar />
 
-                <Navbar />
+                    <Navbar />
 
-                <div className="main-content">
-                    <Routes>
-                        <Route path='/' element={<Home />} />
-                        <Route path='/about' element={<About />} />
-                        <Route path='/services' element={<Services />} />
-                        <Route path='/features' element={<Features />} />
-                        <Route path='/team' element={<Team />} />
-                        <Route path='/blog' element={<Blog />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/register' element={<Register />} />
-                        <Route path='/logout' element={<Logout />} />
-                    </Routes>
+                    <div className="main-content">
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='/about' element={<About />} />
+                            <Route path='/services' element={<Services />} />
+                            <Route path='/features' element={<Features />} />
+                            <Route path='/team' element={<Team />} />
+                            <Route path='/blog' element={<Blog />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/register' element={<Register />} />
+                            <Route path='/logout' element={<Logout />} />
+                        </Routes>
+                    </div>
+
+                    <Footer />
                 </div>
-
-            </div>
-                <Footer />
-        </>
+            </AuthContextProvider>
     )
 }
 

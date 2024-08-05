@@ -1,4 +1,4 @@
-export const getAccesToken = () => {
+export const getAccessToken = () => {
     const authJSON = localStorage.getItem('auth');
 
     if (!authJSON) {
