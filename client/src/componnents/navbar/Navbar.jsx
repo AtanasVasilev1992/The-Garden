@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import withAuth from "../../HOC/withAuth";
 
-export default function Navbar() {
+function Navbar({ auth }) {
+    const { isAuthenticated } = auth;
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
@@ -20,12 +22,23 @@ export default function Navbar() {
                         <Link to="/features" className="nav-item nav-link">Features</Link>
                         <Link to="/team" className="nav-item nav-link">Team</Link>
                         <Link to="/blog" className="nav-item nav-link">Blog</Link>
-                        <Link to="/login" className="nav-item nav-link">Login</Link>
-                        <Link to="/register" className="nav-item nav-link">Register</Link>
-                        <Link to="/logout" className="nav-item nav-link">Logout</Link>
+                        {isAuthenticated
+                            ? (
+                                <Link to="/logout" className="nav-item nav-link">Logout</Link>
+                            )
+                            : (<>
+                                <Link to="/login" className="nav-item nav-link">Login</Link>
+                                <Link to="/register" className="nav-item nav-link">Register</Link>
+                                </>
+                            )
+                        }
                     </div>
                 </div>
             </nav>
         </>
     )
 }
+
+const EnhancedNavbar = withAuth(Navbar);
+
+export default EnhancedNavbar;

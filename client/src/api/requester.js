@@ -7,11 +7,9 @@ async function requester(method, url, data) {
     };
 
     const accessToken = getAccessToken();
-    console.log("Access Token:", accessToken);  
 
     if (accessToken) {
         options.headers['X-Authorization'] = accessToken;
-        console.log("Headers with token:", options.headers); 
     }
 
     if (data) {
@@ -26,12 +24,10 @@ async function requester(method, url, data) {
         }
         const result = await response.json();
         if (!response.ok) {
-            console.error("Response not OK:", result); 
             throw result;
         }
         return result;
     } catch (error) {
-        console.error("Request failed:", error);  
         throw error;
     }
 }

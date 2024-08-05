@@ -1,5 +1,5 @@
-import { login, logout, register } from "/src/api/auth-api.js";
-import { useAuthContext } from "/src/context/authContext.jsx";
+import { login, logout, register } from "../../src/api/auth-api";
+import { useAuthContext } from "../../src/context/authContext.jsx";
 
 export const useLogin = () => {
   const { changeAuthState } = useAuthContext();
@@ -10,7 +10,6 @@ export const useLogin = () => {
       changeAuthState(authData);
       return authData;
     } catch (error) {
-      console.error("Login failed:", error);
       throw error;
     }
   };
@@ -27,7 +26,6 @@ export const useRegister = () => {
       changeAuthState(authData);
       return authData;
     } catch (error) {
-      console.error("Registration failed:", error);
       throw error;
     }
   };
@@ -35,21 +33,23 @@ export const useRegister = () => {
   return registerHandler;
 };
 
+
+
 export const useLogout = () => {
   const { logout: localLogout } = useAuthContext();
 
   const logoutHandler = async () => {
-    try {
-      await logout();
-      localLogout();
-    } catch (error) {
-      console.error("Logout failed:", error);  
-      if (error.code === 403) {
-        console.error("User session does not exist. Clearing local state and redirecting to login...");
-        localLogout();
-       
+      try {
+          await logout();
+      } catch (error) {
+          if (error.code === 403) {
+              localLogout();
+          } else {
+              throw error;
+          }
+      } finally {
+          localLogout();
       }
-    }
   };
 
   return logoutHandler;
