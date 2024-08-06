@@ -18,36 +18,39 @@ import Fruits from "./componnents/fruits/Fruits"
 import Vegetables from "./componnents/vegetables/Vegetables"
 import AddFruit from "./componnents/addFruit/AddFruit"
 import AddVegetable from "./componnents/addVegetable/AddVegetable"
+import PrivateGuard from "./componnents/common/PrivateGuard"
 
 function App() {
     return (
-            <AuthContextProvider >
-                <div className="box">
-                    <Topbar />
+        <AuthContextProvider >
+            <div className="box">
+                <Topbar />
 
-                    <Navbar />
+                <Navbar />
 
-                    <div className="main-content">
-                        <Routes>
-                            <Route path='/' element={<Home />} />
-                            <Route path='/fruits' element={<Fruits />} />
+                <div className="main-content">
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/fruits' element={<Fruits />} />
+                        <Route path='/vegetables' element={<Vegetables />} />
+                        <Route path='/about' element={<About />} />
+                        <Route path='/services' element={<Services />} />
+                        <Route path='/features' element={<Features />} />
+                        <Route path='/team' element={<Team />} />
+                        <Route path='/blog' element={<Blog />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/register' element={<Register />} />
+                        <Route element={<PrivateGuard />}>
                             <Route path='/fruits/create' element={<AddFruit />} />
-                            <Route path='/vegetables' element={<Vegetables />} />
                             <Route path='/vegetables/create' element={<AddVegetable />} />
-                            <Route path='/about' element={<About />} />
-                            <Route path='/services' element={<Services />} />
-                            <Route path='/features' element={<Features />} />
-                            <Route path='/team' element={<Team />} />
-                            <Route path='/blog' element={<Blog />} />
-                            <Route path='/login' element={<Login />} />
-                            <Route path='/register' element={<Register />} />
                             <Route path='/logout' element={<Logout />} />
-                        </Routes>
-                    </div>
-
-                    <Footer />
+                        </Route>
+                    </Routes>
                 </div>
-            </AuthContextProvider>
+
+                <Footer />
+            </div>
+        </AuthContextProvider>
     )
 }
 
