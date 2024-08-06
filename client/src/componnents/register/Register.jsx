@@ -114,7 +114,7 @@ export default function Register() {
                             <div className="bg-secondary h-100 p-5">
                             <h2 className="text-white mb-4" style={{textAlign: 'center'}}>Register</h2>
                                 <div className="d-flex mb-4">
-                                    <h3 className="text-white mb-4" >This is register page</h3>
+                                    <p className="text-white mb-4" >This is register page</p>
                                 </div>
                             </div>
                         </div>
