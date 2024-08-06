@@ -1,4 +1,23 @@
+import { useNavigate, useParams } from "react-router-dom";
+import { useGetOneFruits } from "../../hooks/useFruits";
+import { useForm } from "../../hooks/useForm";
+import fruitsApi from "../../api/fruits-api";
+
+
+
 export default function EditFruit() {
+    const navigate = useNavigate();
+    const { fruitId } = useParams();
+    const [fruit, setFruit] = useGetOneFruits(fruitId);
+    const {
+        changeHandler,
+        submitHandler,
+        values,
+    } = useForm(fruit, async (values) => {
+        await fruitsApi.update(fruitId, values);
+        navigate(`/fruits/${fruitId}/details`);
+    }, true);
+
     return (
         <>
          <div className="container-fluid py-5">
@@ -6,7 +25,7 @@ export default function EditFruit() {
                     <div className="row g-0">
                         <div className="col-lg-7">
                             <div className="bg-primary h-100 p-5">
-                                <form >
+                                <form onSubmit={submitHandler}>
                                     <div className="row g-3">
 
                                         <div className="col-12">
@@ -17,6 +36,8 @@ export default function EditFruit() {
                                                 type="text"
                                                 name="title"
                                                 id='title'
+                                                onChange={changeHandler}
+                                                value={values.title}
                                                 placeholder="Title..."
                                             />
                                         </div>
@@ -28,6 +49,8 @@ export default function EditFruit() {
                                                 type="text"
                                                 name="imageUrl"
                                                 id='imageUrl'
+                                                onChange={changeHandler}
+                                                value={values.imageUrl}
                                                 placeholder="ImageUrl..."
                                             />
                                         </div>
@@ -38,6 +61,8 @@ export default function EditFruit() {
                                                 rows="2"
                                                 name="description"
                                                 id="description"
+                                                onChange={changeHandler}
+                                                value={values.description}
                                                 placeholder="Description"
                                             ></textarea>
                                         </div>

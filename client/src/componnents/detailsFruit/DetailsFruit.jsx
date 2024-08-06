@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 import { useGetOneFruits } from "../../hooks/useFruits";
 import { useCreateComment, useGetAllComennts } from "../../hooks/useComment";
@@ -35,8 +35,8 @@ export default function DetailsFruit() {
 
     const isOwner = userId === fruit._ownerId;
 
-    const gameDeleteHandler = async () => {
-        // const isConfirm = confirm(`Are you sure you want delete game: ${fruit.title} ?`);
+    const fruitDeleteHandler = async () => {
+        const isConfirm = confirm(`Are you sure you want delete game: ${fruit.title} ?`);
 
         if(!isConfirm) {
             return
@@ -65,6 +65,12 @@ export default function DetailsFruit() {
                             </div>
                             <h1 className="mb-4">{fruit.title}</h1>
                             <p>{fruit.description}</p>
+                            {isOwner &&
+                    (<div className="buttons">
+                        <Link to={`/fruits/${fruitId}/edit`}className="button">Edit</Link>
+                        <a href="#" onClick={fruitDeleteHandler} className="button">Delete</a>
+                    </div>
+                    )}
                         </div>
                         {/* Blog Detail End */}
                         {/* Comment List Start */}
