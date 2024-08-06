@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import fruitsApi from "../api/fruits-api-js";
+import fruitsApi from "../api/fruits-api.js";
 
 export function useGetAllFruits() {
     const [fruits, setFruits] = useState([]);
