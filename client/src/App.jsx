@@ -16,6 +16,8 @@ import Team from "./componnents/team/Team"
 import Logout from "./componnents/logout/Logout"
 import Fruits from "./componnents/fruits/Fruits"
 import Vegetables from "./componnents/vegetables/Vegetables"
+import AddFruit from "./componnents/addFruit/AddFruit"
+import AddVegetable from "./componnents/addVegetable/AddVegetable"
 
 function App() {
     return (
@@ -29,7 +31,9 @@ function App() {
                         <Routes>
                             <Route path='/' element={<Home />} />
                             <Route path='/fruits' element={<Fruits />} />
+                            <Route path='/fruits/create' element={<AddFruit />} />
                             <Route path='/vegetables' element={<Vegetables />} />
+                            <Route path='/vegetables/create' element={<AddVegetable />} />
                             <Route path='/about' element={<About />} />
                             <Route path='/services' element={<Services />} />
                             <Route path='/features' element={<Features />} />

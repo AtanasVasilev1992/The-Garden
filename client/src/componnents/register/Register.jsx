@@ -37,9 +37,6 @@ export default function Register() {
         <>
             <div className="container-fluid py-5">
                 <div className="container">
-                    <div className="mx-auto text-left mb-5" style={{ maxWidth: '500px' }}>
-                        <h1 className="display-5">Register</h1>
-                    </div>
                     <div className="row g-0">
                         <div className="col-lg-7">
                             <div className="bg-primary h-100 p-5">
@@ -113,7 +110,14 @@ export default function Register() {
                                 </form>
                             </div>
                         </div>
-
+                        <div className="col-lg-5">
+                            <div className="bg-secondary h-100 p-5">
+                            <h2 className="text-white mb-4" style={{textAlign: 'center'}}>Register</h2>
+                                <div className="d-flex mb-4">
+                                    <h3 className="text-white mb-4" >This is register page</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
