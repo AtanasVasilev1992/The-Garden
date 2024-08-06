@@ -2,6 +2,9 @@ import { Route, Routes } from "react-router-dom"
 
 import { AuthContextProvider } from "./context/authContext"
 
+import PrivateGuard from "./componnents/common/PrivateGuard"
+import GuestGuard from "./componnents/common/GuestGuard"
+
 import About from "./componnents/about/About"
 import Blog from "./componnents/blog/Blog"
 import Home from "./componnents/home/Home"
@@ -18,7 +21,7 @@ import Fruits from "./componnents/fruits/Fruits"
 import Vegetables from "./componnents/vegetables/Vegetables"
 import AddFruit from "./componnents/addFruit/AddFruit"
 import AddVegetable from "./componnents/addVegetable/AddVegetable"
-import PrivateGuard from "./componnents/common/PrivateGuard"
+import NotFound from "./componnents/notFound/NotFound"
 
 function App() {
     return (
@@ -38,13 +41,17 @@ function App() {
                         <Route path='/features' element={<Features />} />
                         <Route path='/team' element={<Team />} />
                         <Route path='/blog' element={<Blog />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/register' element={<Register />} />
+                        <Route element={<GuestGuard />}>
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/register' element={<Register />} />
+                        </Route>
                         <Route element={<PrivateGuard />}>
                             <Route path='/fruits/create' element={<AddFruit />} />
                             <Route path='/vegetables/create' element={<AddVegetable />} />
                             <Route path='/logout' element={<Logout />} />
                         </Route>
+                        <Route path="/not-found" element={<NotFound />} />
+                        <Route path="/*" element={<NotFound />} />
                     </Routes>
                 </div>
 
