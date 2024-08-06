@@ -2,11 +2,13 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useLogin } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
+import { useState } from 'react';
 
 
 const initialValues = { email: '', password: '' };
 
 export default function Login() {
+    const [error, setError] = useState('');
     const login = useLogin()
     const navigate = useNavigate();
 
@@ -14,8 +16,8 @@ export default function Login() {
         try {
             await login(email, password);
             navigate('/')
-        } catch (error) {
-            console.log(error.message);
+        } catch (err) {
+            setError(err.message);
         }
     };
     const { values, changeHandler, submitHandler } = useForm(initialValues, loginHandler);
@@ -56,6 +58,11 @@ export default function Login() {
                                                 placeholder="******"
                                             />
                                         </div>
+                                        {error && (
+                                            <p>
+                                                <span style={{ color: 'red', fontSize: "18px" }}>{error}</span>
+                                            </p>
+                                        )}
                                         <div className="col-3">
                                             <button className="btn btn-secondary w-100 py-3" type="submit">Login</button>
                                         </div>
