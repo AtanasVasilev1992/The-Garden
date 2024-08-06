@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
+
+import { useGetAllVegetables } from "../../hooks/useVegetables";
 import VegetableCard from "./card/VegetableCard";
 
 export default function Vegetables() {
+    const [vegetables] = useGetAllVegetables();
+
     return (
         <>
             <div className="container-fluid bg-primary py-5 bg-hero mb-5">
                 <div className="container py-5">
-                    <div clasNames="row justify-content-start">
+                    <div className="row justify-content-start">
                         <div className="col-lg-8 text-center text-lg-start">
                             <h1 className="display-1 text-white mb-md-4">Vegetables</h1>
                             <Link to="/" className="btn btn-primary py-md-3 px-md-5 me-3">Home</Link>
@@ -23,15 +27,15 @@ export default function Vegetables() {
                         <h1 className="display-5">This is catalog of added vegetables</h1>
                     </div>
                     <div className="row g-5">
-                        <VegetableCard/>
-                        <VegetableCard/>
-                        <VegetableCard/>
-                        <VegetableCard/>
-                        <VegetableCard/>
-                        <VegetableCard/>
+                        {vegetables.length > 0
+                            ? vegetables.map(vegetable => (
+                                <VegetableCard key={vegetable._id} {...vegetable} />
+                            ))
+                            : <h3>No Vegetables yet!</h3>
+                        }
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }

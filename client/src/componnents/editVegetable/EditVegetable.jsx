@@ -50,7 +50,7 @@ export default function EditVegetable() {
                         </div>
                         <div className="col-lg-5">
                             <div className="bg-secondary h-100 p-5">
-                                <h2 className="text-white mb-4">EditVegetable</h2>
+                                <h2 className="text-white mb-4">Edit Vegetable</h2>
                                 <div className="d-flex mb-4">
                                     <p className="text-white mb-4">We appreciate your help</p>
                                 </div>

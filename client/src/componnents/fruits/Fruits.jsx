@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
-import Card from "./card/FruitCard";
+
+import { useGetAllFruits } from "../../hooks/useFruits";
+import FruitCard from "./card/FruitCard";
 
 export default function Fruits() {
+    const [fruits] = useGetAllFruits();
+    
     return (
         <>
             <div className="container-fluid bg-primary py-5 bg-hero mb-5">
@@ -23,16 +27,10 @@ export default function Fruits() {
                         <h1 className="display-5">This is catalog of added fruits</h1>
                     </div>
                     <div className="row g-5">
-                        <Card/>
-                        <Card/>
-                        <Card/>
-                        <Card/>
-                        <Card/>
-                        <Card/>
-                        <Card/>
-                        <Card/>
-                        <Card/>
-                        <Card/>
+                        {fruits.length > 0
+                            ? fruits.map(fruit => <FruitCard key={fruit._id} {...fruit} />)
+                            : <h3>No fruits yet!</h3>
+                        }
                     </div>
                 </div>
             </div>

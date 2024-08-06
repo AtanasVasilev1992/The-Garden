@@ -51,7 +51,7 @@ export default function Footer() {
                                 <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
                                 <form action>
                                     <div className="input-group">
-                                        <input type="text" className="form-control border-white p-3" placeholder="Your Email" />
+                                        <input type="email" className="form-control border-white p-3" placeholder="Your Email" />
                                         <button className="btn btn-primary">Sign Up</button>
                                     </div>
                                 </form>

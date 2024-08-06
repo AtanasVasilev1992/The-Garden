@@ -1339,91 +1339,101 @@
     	}
     };
     var seedData = {
-    	recipes: {
-    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Easy Lasagna",
-    			img: "assets/lasagna.jpg",
-    			ingredients: [
-    				"1 tbsp Ingredient 1",
-    				"2 cups Ingredient 2",
-    				"500 g  Ingredient 3",
-    				"25 g Ingredient 4"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551279012
-    		},
-    		"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Grilled Duck Fillet",
-    			img: "assets/roast.jpg",
-    			ingredients: [
-    				"500 g  Ingredient 1",
-    				"3 tbsp Ingredient 2",
-    				"2 cups Ingredient 3"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551344360
-    		},
-    		"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Roast Trout",
-    			img: "assets/fish.jpg",
-    			ingredients: [
-    				"4 cups Ingredient 1",
-    				"1 tbsp Ingredient 2",
-    				"1 tbsp Ingredient 3",
-    				"750 g  Ingredient 4",
-    				"25 g Ingredient 5"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551388703
-    		}
-    	},
+    	// recipes: {
+    	// 	"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+    	// 		_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    	// 		name: "Easy Lasagna",
+    	// 		img: "assets/lasagna.jpg",
+    	// 		ingredients: [
+    	// 			"1 tbsp Ingredient 1",
+    	// 			"2 cups Ingredient 2",
+    	// 			"500 g  Ingredient 3",
+    	// 			"25 g Ingredient 4"
+    	// 		],
+    	// 		steps: [
+    	// 			"Prepare ingredients",
+    	// 			"Mix ingredients",
+    	// 			"Cook until done"
+    	// 		],
+    	// 		_createdOn: 1613551279012
+    	// 	},
+    	// 	"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+    	// 		_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    	// 		name: "Grilled Duck Fillet",
+    	// 		img: "assets/roast.jpg",
+    	// 		ingredients: [
+    	// 			"500 g  Ingredient 1",
+    	// 			"3 tbsp Ingredient 2",
+    	// 			"2 cups Ingredient 3"
+    	// 		],
+    	// 		steps: [
+    	// 			"Prepare ingredients",
+    	// 			"Mix ingredients",
+    	// 			"Cook until done"
+    	// 		],
+    	// 		_createdOn: 1613551344360
+    	// 	},
+    	// 	"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
+    	// 		_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+    	// 		name: "Roast Trout",
+    	// 		img: "assets/fish.jpg",
+    	// 		ingredients: [
+    	// 			"4 cups Ingredient 1",
+    	// 			"1 tbsp Ingredient 2",
+    	// 			"1 tbsp Ingredient 3",
+    	// 			"750 g  Ingredient 4",
+    	// 			"25 g Ingredient 5"
+    	// 		],
+    	// 		steps: [
+    	// 			"Prepare ingredients",
+    	// 			"Mix ingredients",
+    	// 			"Cook until done"
+    	// 		],
+    	// 		_createdOn: 1613551388703
+    	// 	}
+    	// },
         fruits: {
             "2d5ae478-87c7-45fa-acf9-f04aa4724421": {
               "title": "Apple",
-              "imageUrl": "https://static.wikia.nocookie.net/fruits-information/images/2/2b/Apple.jpg/revision/latest?cb=20180802112257",
+              "imageUrl": "https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg",
               "description": "An apple is a round, edible fruit produced by an apple tree (Malus spp., among them the domestic or orchard apple; Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found. Apples have been grown for thousands of years in Eurasia and were introduced to North America by European colonists. Apples have religious and mythological significance in many cultures, including Norse, Greek, and European Christian tradition. ",
-              "_id": "2d5ae478-87c7-45fa-acf9-f04aa4724421"
+              "_id": "2d5ae478-87c7-45fa-acf9-f04aa4724421",
+              _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+              _createdOn: 1613551388703
             },
             "6012c542-38e1-4660-ba40-1b109c40cb2f": {
               "title": "Apricot",
               "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Apricot_and_cross_section.jpg",
               "description": "The apricot is a small tree, 8-12 metres (26-39 feet) tall, with a trunk up to 40 centimetres (16 inches) in diameter and a dense, spreading canopy. The leaves are ovate, 5-9 cm long, and 4-8 cm wide, with a rounded base, a pointed tip, and a finely serrated margin. The flowers are 2-4.5 cm in diameter, with five white to pinkish petals; they are produced singly or in pairs in early spring before the leaves. The fruit is a drupe (stonefruit) similar to a small peach, 1.5-2.5 cm diameter (larger in some modern cultivars), from yellow to orange, often tinged red on the side most exposed to the sun; its surface can be smooth (botanically described as: glabrous) or velvety with very short hairs (botanically: pubescent). The flesh is usually succulent, but dry in some species such as P. sibirica. Its taste can range from sweet to tart. The single seed or 'kernel' is enclosed in a hard shell, often called a stone, with a grainy, smooth texture except for three ridges running down one side.",
-              "_id": "6012c542-38e1-4660-ba40-1b109c40cb2f"
+              "_id": "6012c542-38e1-4660-ba40-1b109c40cb2f",
+              _createdOn: 1613551388704,
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
             },
             "d749a819-1e41-4c65-9ce2-7b429c4ebd0d": {
               "title": "Strawberry",
               "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/1200px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg",
               "description": "The garden strawberry (or simply strawberry; Fragaria × ananassa)[1] is a widely grown hybrid species of the genus Fragaria in the rose family, Rosaceae, collectively known as the strawberries, which are cultivated worldwide for their fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness. It is consumed in large quantities, either fresh or in such prepared foods as jam, juice, pies, ice cream, milkshakes, and chocolates. Artificial strawberry flavorings and aromas are also widely used in products such as candy, soap, lip gloss, perfume, and many others.",
-              "_id": "d749a819-1e41-4c65-9ce2-7b429c4ebd0d"
+              "_id": "d749a819-1e41-4c65-9ce2-7b429c4ebd0d",
+              _createdOn: 1613551388705,
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
             }
           },
           vegetables: {
-            "2d5ae478-87c7-45fa-acf9-f04aa4724424": {
+            "2d5ae478-87c7-45fa-acf9-f04aa4724421": {
               "title": "Carrot",
               "imageUrl": "https://cdn11.bigcommerce.com/s-kc25pb94dz/images/stencil/1280x1280/products/271/762/Carrot__40927.1634584458.jpg?c=2",
               "description": "The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color, though heirloom variants including purple, black, red, white, and yellow cultivars exist,[2][3][4] all of which are domesticated forms of the wild carrot, Daucus carota, native to Europe and Southwestern Asia. The plant probably originated in Iran and was originally cultivated for its leaves and seeds. The most commonly eaten part of the plant is the taproot, although the stems and leaves are also eaten. The domestic carrot has been selectively bred for its enlarged, more palatable, less woody-textured taproot. Carrots are commonly consumed raw or cooked in various cuisines. ",
-              "_id": "2d5ae478-87c7-45fa-acf9-f04aa4724424"
+              "_id": "2d5ae478-87c7-45fa-acf9-f04aa4724421",
+              _createdOn: 1613551388706,
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
             },
-            "6012c542-38e1-4660-ba40-1b109c40cb3f": {
+            "6012c542-38e1-4660-ba40-1b109c40cb2f": {
               "title": "Cucumber",
               "imageUrl": "https://m.media-amazon.com/images/I/71tRVVk6DjL._AC_UF894,1000_QL80_.jpg",
               "description": "The cucumber (Cucumis sativus) is a widely-cultivated creeping vine plant in the family Cucurbitaceae that bears cylindrical to spherical fruits, which are used as culinary vegetables.[1] Considered an annual plant,[2] there are three main types of cucumber—slicing, pickling, and seedless—within which several cultivars have been created. The cucumber originates in Asia extending from India, Nepal, Bangladesh, China (Yunnan, Guizhou, Guangxi), and Northern Thailand,[3][4][5][6] but now grows on most continents, and many different types of cucumber are grown commercially and traded on the global market. In North America, the term wild cucumber refers to plants in the genera Echinocystis and Marah, though the two are not closely related. ",
-              "_id": "6012c542-38e1-4660-ba40-1b109c40cb3f"
+              "_id": "6012c542-38e1-4660-ba40-1b109c40cb2f",
+              _createdOn: 1613551388707,
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
             }
           }
     	

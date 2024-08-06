@@ -1,4 +1,56 @@
+import { useNavigate, useParams } from "react-router-dom"
+
+import { useGetOneFruits } from "../../hooks/useFruits";
+import { useCreateComment, useGetAllComennts } from "../../hooks/useComment";
+import { useForm } from "../../hooks/useForm";
+import fruitsApi from "../../api/fruits-api";
+import { useAuthContext } from "../../context/authContext";
+
+const initialValues = {
+    comment: ''
+}
+
+
 export default function DetailsFruit() {
+    const navigate = useNavigate();
+    const { fruitId } = useParams();
+    const [commet, dispatchComments] = useGetAllComennts()
+    const createComment = useCreateComment();
+    const { isAuthenticated, username, userId } = useAuthContext()
+    const [fruit] = useGetOneFruits(fruitId);
+    const {
+        changeHandler,
+        submitHandler,
+        values,
+    } = useForm(initialValues, async ({ comment }) => {
+        try {
+            const newComment = await createComment(fruitId, comment);
+
+            dispatchComments({ type: 'ADD_COMMENT', payload: { ...newComment, author: { username } } })
+        } catch (err) {
+            console.log(err.message);
+
+        }
+    });
+
+    const isOwner = userId === fruit._ownerId;
+
+    const gameDeleteHandler = async () => {
+        // const isConfirm = confirm(`Are you sure you want delete game: ${fruit.title} ?`);
+
+        if(!isConfirm) {
+            return
+        };
+
+        try {
+            await fruitsApi.remove(fruitId);
+
+            navigate('/');
+        } catch (err) {
+            console.log(err.message);
+            
+        }
+    };
     return (
         <>
             <div className="container py-5">
@@ -8,11 +60,11 @@ export default function DetailsFruit() {
                         <div className="mb-5">
                             <div className="row g-5 mb-5">
                                 <div className="col-md-6">
-                                    <img className="img-fluid w-100" src="img/blog-1.jpg" alt="" />
+                                    <img className="img-fluid w-100" src={fruit.imageUrl} alt="" />
                                 </div>
                             </div>
-                            <h1 className="mb-4">Strawberry</h1>
-                            <p>The best</p>
+                            <h1 className="mb-4">{fruit.title}</h1>
+                            <p>{fruit.description}</p>
                         </div>
                         {/* Blog Detail End */}
                         {/* Comment List Start */}
@@ -39,7 +91,9 @@ export default function DetailsFruit() {
                             </div>
                         </div>
                         {/* Comment List End */}
+                        
                         {/* Comment Form Start */}
+                        {isAuthenticated && (
                         <div className="bg-primary p-5">
                             <h2 className="text-white mb-4">Leave a comment</h2>
                             <form>
@@ -76,6 +130,7 @@ export default function DetailsFruit() {
                                 </div>
                             </form>
                         </div>
+                        )}
                         {/* Comment Form End */}
                     </div>
                 </div>
