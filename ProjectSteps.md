@@ -15,17 +15,17 @@ SoftUni React Course Project
 - [x] Add routes in App.jsx
 - [x] Add links in the navigation
 ## 3. Create Service Layer
-- [ ] Service layer architecture disccusion
-- [ ] Abstract requester
-- [ ] Add produces api
-- [ ] Preseed practice server
+- [x] Service layer architecture disccusion
+- [x] Abstract requester
+- [x] Add produces api
+- [x] Preseed practice server
 ## 4. Page Implementations
-- [ ] Garden list
-- [ ] Details
-  - [ ] Details link
-  - [ ] Details route
-  - [] Api function - getOne
-- [ ] Home - Latest produces
+- [x] Garden list
+- [x] Details
+  - [x] Details link
+  - [x] Details route
+  - [x] Api function - getOne
+- [x] Home
 ## 5. Comments (Advanced)?
 - [ ] Create service for nested resource `comments`?
 - [ ] Post comment to server
@@ -33,40 +33,40 @@ SoftUni React Course Project
 - [ ] Add comments in the component
 - [ ] Clear form
 ## 6. API Hooks
-- [ ] Form Hook
-- [ ] GardenAPI Hooks
+- [x] Form Hook
+- [x] GardenAPI Hooks
 - [ ] Comment Hooks?
 ## 7. Authentication
-- [ ] Auth API
-  - [ ] Login
-  - [ ] Register
-  - [ ] Logout
-- [ ] Auth API hook
-  - [ ] Login
-  - [ ] Register
-  - [ ] Logout
-- [ ] Auth state & context
-- [ ] Token management
-- [ ] Login
-- [ ] Register
+- [x] Auth API
+  - [x] Login
+  - [x] Register
+  - [x] Logout
+- [x] Auth API hook
+  - [x] Login
+  - [x] Register
+  - [x] Logout
+- [x] Auth state & context
+- [x] Token management
+- [x] Login
+- [x] Register
   - [ ] Add form validation
-- [ ] Logout
-- [ ] Authorized Requests
+- [x] Logout
+- [x] Authorized Requests
 ## 8. UI Implementation 
-- [ ] Dynamic navigation
-- [ ] Create produce
-  - [ ] API function
-  - [ ] Hook
-- [ ] Delete produce
-- [ ] Edit produce
-- [ ] Latest produce
+- [x] Dynamic navigation
+- [x] Create produce
+  - [x] API function
+  - [x] Hook
+- [x] Delete produce
+- [x] Edit produce
+- [x] Latest produce
 ## 9. Refactoring
 - [ ] Extract auth state from App component
-- [ ] Persist auth state
+- [x] Persist auth state
 - [ ] Comments
 - [ ] Refactored comments with useReducer
 - [ ] Edit and delete ownership rendering
-- [ ] Add route guards
+- [x] Add route guards
 
 ## Notes
   1. Latest Produce(vegetables and fruits)
