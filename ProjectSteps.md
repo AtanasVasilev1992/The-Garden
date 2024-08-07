@@ -27,15 +27,15 @@ SoftUni React Course Project
   - [x] Api function - getOne
 - [x] Home
 ## 5. Comments (Advanced)?
-- [ ] Create service for nested resource `comments`?
-- [ ] Post comment to server
-- [ ] Read comments from server
-- [ ] Add comments in the component
+- [x] Create service for nested resource `comments`?
+- [x] Post comment to server
+- [x] Read comments from server
+- [x] Add comments in the component
 - [ ] Clear form
 ## 6. API Hooks
 - [x] Form Hook
 - [x] GardenAPI Hooks
-- [ ] Comment Hooks?
+- [x] Comment Hooks?
 ## 7. Authentication
 - [x] Auth API
   - [x] Login
@@ -49,7 +49,7 @@ SoftUni React Course Project
 - [x] Token management
 - [x] Login
 - [x] Register
-  - [ ] Add form validation
+  - [x] Add form validation
 - [x] Logout
 - [x] Authorized Requests
 ## 8. UI Implementation 
@@ -63,13 +63,10 @@ SoftUni React Course Project
 ## 9. Refactoring
 - [ ] Extract auth state from App component
 - [x] Persist auth state
-- [ ] Comments
-- [ ] Refactored comments with useReducer
+- [x] Comments
+- [x] Refactored comments with useReducer
 - [ ] Edit and delete ownership rendering
 - [x] Add route guards
 
 ## Notes
-  1. Latest Produce(vegetables and fruits)
-     2. URL `http://localhost:3030/data/produce?sortBy=_createdOn%20desc&pageSize=3`
-     3. USE URLSearchParams
-  2. seedData - line 1341 in server.js
+  1. seedData - line 1341 in server.js

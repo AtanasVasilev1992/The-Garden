@@ -1,7 +1,7 @@
 export default function Features() {
     return (
         <>
-        <div className="container-fluid bg-primary feature py-5 pb-lg-0 my-5">
+            <div className="container-fluid bg-primary feature py-5 pb-lg-0 my-5">
                 <div className="container py-5 pb-lg-0">
                     <div className="mx-auto text-center mb-3 pb-2" style={{ maxWidth: '500px' }}>
                         <h6 className="text-uppercase text-secondary">Features</h6>
@@ -24,7 +24,7 @@ export default function Features() {
                             </div>
                         </div>
                         <div className="col-lg-3">
-                        <div className="text-white">
+                            <div className="text-white">
                                 <div className="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style={{ width: '60px', height: '60px' }}>
                                     <i className="fa fa-award fs-4 text-white" />
                                 </div>

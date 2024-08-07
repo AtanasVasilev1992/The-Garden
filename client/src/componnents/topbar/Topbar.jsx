@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import EnhancedNavbar from "../navbar/Navbar";
 
 export default function Topbar() {
     return (
@@ -28,6 +29,7 @@ export default function Topbar() {
                     </div>
                 </div>
             </div>
+            <EnhancedNavbar />
         </>
     )
 }
