@@ -1,4 +1,31 @@
+import { useNavigate } from "react-router-dom"
+import { useCreateVegetable } from "../../hooks/useVegetables";
+import { useForm } from "../../hooks/useForm";
+
+const initialValues = {
+    title: '',
+    imageUrl: '',
+    description: ''
+}
+
 export default function AddVegetable() {
+    const navigate = useNavigate();
+    const createVegetable = useCreateVegetable();
+
+    const createHandler = async (values) => {
+        try {
+            const { _id: vegetableId } = await createVegetable(values);
+            navigate(`/vegetables/${vegetableId}/details`);
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+    const { values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, createHandler);
+
     return (
         <>
             <div className="container-fluid py-5">
@@ -6,7 +33,7 @@ export default function AddVegetable() {
                     <div className="row g-0">
                         <div className="col-lg-7">
                             <div className="bg-primary h-100 p-5">
-                                <form >
+                                <form onSubmit={submitHandler}>
                                     <div className="row g-3">
 
                                         <div className="col-12">
@@ -17,6 +44,8 @@ export default function AddVegetable() {
                                                 type="text"
                                                 name="title"
                                                 id='title'
+                                                value={values.title}
+                                                onChange={changeHandler}
                                                 placeholder="Title..."
                                             />
                                         </div>
@@ -28,6 +57,8 @@ export default function AddVegetable() {
                                                 type="text"
                                                 name="imageUrl"
                                                 id='imageUrl'
+                                                value={values.imageUrl}
+                                                onChange={changeHandler}
                                                 placeholder="ImageUrl..."
                                             />
                                         </div>
@@ -38,6 +69,8 @@ export default function AddVegetable() {
                                                 rows="2"
                                                 name="description"
                                                 id="description"
+                                                value={values.description}
+                                                onChange={changeHandler}
                                                 placeholder="Description"
                                             ></textarea>
                                         </div>
