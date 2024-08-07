@@ -1,3 +1,4 @@
+import Services from "../services/Services";
 
 
 export default function About() {
@@ -16,17 +17,17 @@ export default function About() {
                                 <h6 className="text-primary text-uppercase">About Us</h6>
                                 <h1 className="display-5">Learn How To Produce Organic Food</h1>
                             </div>
-                            <p className="mb-4">We will help you to learn how to produce organic food for your family</p>
+                            <p className="mb-4"></p>
                             <div className="row gx-5 gy-4">
                                 <div className="col-sm-6">
                                     <i className="fa fa-seedling display-1 text-secondary" />
                                     <h4>100% Organic</h4>
-                                    <p className="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                                    <p className="mb-0">We will help you to learn how to produce organic food for your family.</p>
                                 </div>
                                 <div className="col-sm-6">
                                     <i className="fa fa-award display-1 text-secondary" />
                                     <h4>Award</h4>
-                                    <p className="mb-0">Your healt is us best reward!</p>
+                                    <p className="mb-0">Your health is our biggest reward!</p>
                                 </div>
                             </div>
                         </div>
@@ -34,6 +35,7 @@ export default function About() {
                 </div>
             </div>
             
+            <Services/>
 
         </>
     )

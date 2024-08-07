@@ -5,7 +5,7 @@ export default function Team() {
                 <div className="container">
                     <div className="mx-auto text-center mb-5" style={{ maxWidth: '500px' }}>
                         <h6 className="text-primary text-uppercase">The Team</h6>
-                        <h1 className="display-5">We Are Professional Organic Farmers</h1>
+                        <h1 className="display-5">We are experienced farmers</h1>
                     </div>
                     <div className="row g-5">
                         <div className="col-lg-4 col-md-6">
@@ -15,7 +15,7 @@ export default function Team() {
                                         <img className="img-fluid w-100" src="img/team-1.jpg" alt="" />
                                         <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
                                             <h4 className="text-white">Ivan Ivanov</h4>
-                                            <span className="text-white">Expert Gardaner</span>
+                                            <span className="text-white">admin@abv.bg</span>
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@ export default function Team() {
                                         <img className="img-fluid w-100" src="img/team-2.jpg" alt="" />
                                         <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
                                             <h4 className="text-white">Maria Georgieva</h4>
-                                            <span className="text-white">Fruit Expert</span>
+                                            <span className="text-white">maria@abv.bg</span>
                                         </div>
                                     </div>
                                 </div>
@@ -56,8 +56,8 @@ export default function Team() {
                                     <div className="position-relative">
                                         <img className="img-fluid w-100" src="img/team-3.jpg" alt="" />
                                         <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Georgi Dimitrov</h4>
-                                            <span className="text-white">Vegetable Expert</span>
+                                            <h4 className="text-white">Petar Dimitrov</h4>
+                                            <span className="text-white">petar@abv.bg</span>
                                         </div>
                                     </div>
                                 </div>

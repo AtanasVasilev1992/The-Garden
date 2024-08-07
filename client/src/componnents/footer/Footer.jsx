@@ -38,7 +38,6 @@ export default function Footer() {
                                         <Link className="text-white mb-2" to="/fruits"><i className="bi bi-arrow-right text-white me-2" />Fruits</Link>
                                         <Link className="text-white mb-2" to="/services"><i className="bi bi-arrow-right text-white me-2" />Our Services</Link>
                                         <Link className="text-white mb-2" to="/team"><i className="bi bi-arrow-right text-white me-2" />Meet The Team</Link>
-                                        <Link className="text-white mb-2" to="/blog"><i className="bi bi-arrow-right text-white me-2" />Latest Blog</Link>
                                     </div>
                                 </div>
                                 
@@ -48,7 +47,7 @@ export default function Footer() {
                             <div className="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
                                 <h4 className="text-white">Newsletter</h4>
                                 <h6 className="text-white">Subscribe Our Newsletter</h6>
-                                <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
+                                <p>Send your email</p>
                                 <form action>
                                     <div className="input-group">
                                         <input type="email" className="form-control border-white p-3" placeholder="Your Email" />

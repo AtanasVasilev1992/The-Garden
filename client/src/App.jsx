@@ -12,7 +12,6 @@ import Footer from "./componnents/footer/Footer"
 import Topbar from "./componnents/topbar/Topbar"
 import Login from "./componnents/login/Login"
 import Register from "./componnents/register/Register"
-import Services from "./componnents/services/Services"
 import Team from "./componnents/team/Team"
 import Logout from "./componnents/logout/Logout"
 import Fruits from "./componnents/fruits/Fruits"
@@ -41,7 +40,6 @@ function App() {
                         <Route path='/vegetables/:vegetableId/edit' element={<EditVegetable />} />
                         <Route path='/vegetables/:vegetableId/details' element={<DetailsVegetable />} />
                         <Route path='/about' element={<About />} />
-                        <Route path='/services' element={<Services />} />
                         <Route path='/features' element={<Features />} />
                         <Route path='/team' element={<Team />} />
                         <Route element={<GuestGuard />}>

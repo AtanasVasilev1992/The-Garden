@@ -16,7 +16,6 @@ function Navbar({ auth }) {
                     <div className="navbar-nav mx-auto py-0">
                         <Link to="/" className="nav-item nav-link">Home</Link>
                         <Link to="/about" className="nav-item nav-link">About</Link>
-                        <Link to="/services" className="nav-item nav-link">Services</Link>
                         <Link to="/features" className="nav-item nav-link">Features</Link>
                         <Link to="/team" className="nav-item nav-link">Team</Link>                      
                         <Link to="/vegetables" className="nav-item nav-link">Vegetables</Link>
