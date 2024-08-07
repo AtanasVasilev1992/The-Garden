@@ -1,12 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-// import './Register.css';
 
 import { useRegister } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 
-const initialValues = { email: '',name: '', password: '', rePassword: '' };
+const initialValues = { email: '', username: '', password: '', rePassword: '' };
 
 export default function Register() {
     const [error, setError] = useState('');
@@ -57,14 +56,14 @@ export default function Register() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="name">Name:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="username">Name:</label>
                                             <input 
                                                className="form-control bg-light border-0 px-4" 
                                                style={{ height: '55px' }} 
                                                type="text" 
-                                               name="name" 
-                                               id='name'
-                                               value={values.name}
+                                               name="username" 
+                                               id='username'
+                                               value={values.username}
                                                onChange={changeHandler}
                                                placeholder="Alex Ivanov" 
                                             />
