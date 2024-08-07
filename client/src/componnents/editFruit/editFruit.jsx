@@ -67,7 +67,7 @@ export default function EditFruit() {
                                             ></textarea>
                                         </div>
                                         <div className="col-3">
-                                            <button className="btn btn-secondary w-100 py-3" type="submit">Add Fruit</button>
+                                            <button className="btn btn-secondary w-100 py-3" type="submit">Edit</button>
                                         </div>
                                     </div>
                                 </form>
@@ -75,7 +75,7 @@ export default function EditFruit() {
                         </div>
                         <div className="col-lg-5">
                             <div className="bg-secondary h-100 p-5">
-                                <h2 className="text-white mb-4">Edit Fruit</h2>
+                                <h2 className="text-white mb-4">Edit {values.title}</h2>
                                 <div className="d-flex mb-4">
                                     <p className="text-white mb-4">We appreciate your help</p>
                                 </div>
