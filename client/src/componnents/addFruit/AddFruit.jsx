@@ -64,7 +64,7 @@ export default function AddFruit() {
                                                 placeholder="ImageUrl..."
                                             />
                                         </div>
-                                        <div class="col-12">
+                                        <div className="col-12">
                                             <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="description">Description:</label>
                                             <textarea
                                                 className="form-control bg-light border-0 px-4 py-3"

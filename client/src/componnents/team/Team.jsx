@@ -14,8 +14,8 @@ export default function Team() {
                                     <div className="position-relative">
                                         <img className="img-fluid w-100" src="img/team-1.jpg" alt="" />
                                         <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
+                                            <h4 className="text-white">Ivan Ivanov</h4>
+                                            <span className="text-white">Expert Gardaner</span>
                                         </div>
                                     </div>
                                 </div>
@@ -35,8 +35,8 @@ export default function Team() {
                                     <div className="position-relative">
                                         <img className="img-fluid w-100" src="img/team-2.jpg" alt="" />
                                         <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
+                                            <h4 className="text-white">Maria Georgieva</h4>
+                                            <span className="text-white">Fruit Expert</span>
                                         </div>
                                     </div>
                                 </div>
@@ -56,8 +56,8 @@ export default function Team() {
                                     <div className="position-relative">
                                         <img className="img-fluid w-100" src="img/team-3.jpg" alt="" />
                                         <div className="position-absolute start-0 bottom-0 w-100 py-3 px-4" style={{ background: 'rgba(52, 173, 84, .85)' }}>
-                                            <h4 className="text-white">Farmer Name</h4>
-                                            <span className="text-white">Designation</span>
+                                            <h4 className="text-white">Georgi Dimitrov</h4>
+                                            <span className="text-white">Vegetable Expert</span>
                                         </div>
                                     </div>
                                 </div>

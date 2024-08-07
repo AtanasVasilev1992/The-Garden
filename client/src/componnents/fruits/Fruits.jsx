@@ -12,7 +12,7 @@ export default function Fruits() {
                 <div className="container py-5">
                     <div className="row justify-content-start">
                         <div className="col-lg-8 text-center text-lg-start">
-                            <h1 class="display-1 text-white mb-md-4">Fruits</h1>
+                            <h1 className="display-1 text-white mb-md-4">Fruits</h1>
                             <Link to="/" className="btn btn-primary py-md-3 px-md-5 me-3">Home</Link>
                             <Link to="/fruits/create" className="btn btn-secondary py-md-3 px-md-5">Add New</Link>
                         </div>
