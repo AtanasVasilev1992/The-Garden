@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
     return (
         <>
-        <div className="container-fluid bg-footer bg-primary text-white mt-5">
+            <div className="container-fluid bg-footer bg-primary text-white mt-5">
                 <div className="container">
                     <div className="row gx-5">
                         <div className="col-lg-8 col-md-6">
@@ -40,7 +40,7 @@ export default function Footer() {
                                         <Link className="text-white mb-2" to="/team"><i className="bi bi-arrow-right text-white me-2" />Meet The Team</Link>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 mt-lg-n5">

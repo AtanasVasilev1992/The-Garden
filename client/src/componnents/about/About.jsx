@@ -4,7 +4,7 @@ import Services from "../services/Services";
 export default function About() {
     return (
         <>
-        <div className="container-fluid about pt-5">
+            <div className="container-fluid about pt-5">
                 <div className="container">
                     <div className="row gx-5">
                         <div className="col-lg-6 mb-5 mb-lg-0">
@@ -34,8 +34,8 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            
-            <Services/>
+
+            <Services />
 
         </>
     )

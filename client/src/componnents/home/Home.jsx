@@ -4,7 +4,7 @@ import Banner from "../banner/Banner";
 export default function Home() {
     return (
         <>
-        <div className="container-fluid p-0">
+            <div className="container-fluid p-0">
                 <div id="header-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div className="carousel-inner">
                         <div className="carousel-item active">

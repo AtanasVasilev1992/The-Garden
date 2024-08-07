@@ -10,10 +10,10 @@ export default function FruitCard({
             <div className="col-lg-4">
                 <div className="blog-item position-relative overflow-hidden">
                     <div>
-                    <img className="img-fluid" src={imageUrl} alt={title} style={{width: "400px", height: "300px"}}/>
+                        <img className="img-fluid" src={imageUrl} alt={title} style={{ width: "400px", height: "300px" }} />
                         <Link className="blog-overlay" to={`/fruits/${_id}/details`}>
                             <h4 className="text-white">{title}</h4>
-                            <p style={{color: '#f93'}}>Fruits</p>
+                            <p style={{ color: '#f93' }}>Fruits</p>
                             <p className="text-white fw-bold">More details</p>
                         </Link>
                     </div>

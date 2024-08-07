@@ -33,23 +33,21 @@ export const useRegister = () => {
   return registerHandler;
 };
 
-
-
 export const useLogout = () => {
   const { logout: localLogout } = useAuthContext();
 
   const logoutHandler = async () => {
-      try {
-          await logout();
-      } catch (error) {
-          if (error.code === 403) {
-              localLogout();
-          } else {
-              throw error;
-          }
-      } finally {
-          localLogout();
+    try {
+      await logout();
+    } catch (error) {
+      if (error.code === 403) {
+        localLogout();
+      } else {
+        throw error;
       }
+    } finally {
+      localLogout();
+    }
   };
 
   return logoutHandler;

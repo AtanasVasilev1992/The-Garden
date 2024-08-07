@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Banner() {
     return (
         <>
-        <div className="container-fluid banner mb-5">
+            <div className="container-fluid banner mb-5">
                 <div className="container">
                     <div className="row gx-0">
                         <div className="col-md-6">

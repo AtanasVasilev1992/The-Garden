@@ -43,7 +43,7 @@ export default function Register() {
                                     <div className="row g-3">
 
                                         <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="email">Email:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="email">Email:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -56,20 +56,20 @@ export default function Register() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="username">Name:</label>
-                                            <input 
-                                               className="form-control bg-light border-0 px-4" 
-                                               style={{ height: '55px' }} 
-                                               type="text" 
-                                               name="username" 
-                                               id='username'
-                                               value={values.username}
-                                               onChange={changeHandler}
-                                               placeholder="Alex Ivanov" 
+                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="username">Name:</label>
+                                            <input
+                                                className="form-control bg-light border-0 px-4"
+                                                style={{ height: '55px' }}
+                                                type="text"
+                                                name="username"
+                                                id='username'
+                                                value={values.username}
+                                                onChange={changeHandler}
+                                                placeholder="Alex Ivanov"
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="password">Password:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="password">Password:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -82,7 +82,7 @@ export default function Register() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93'}} htmlFor="rePassword">Repeat Password:</label>
+                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="rePassword">Repeat Password:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -103,7 +103,7 @@ export default function Register() {
                                             <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
                                         </div>
                                         <p className="field">
-                                            <span style={{ fontSize: "1.5em", color: '#f93'}}>If you already have a profile click <Link style={{ fontSize: "1em", color: '#F6FFF2'}} to="/login">here</Link> !</span>
+                                            <span style={{ fontSize: "1.5em", color: '#f93' }}>If you already have a profile click <Link style={{ fontSize: "1em", color: '#F6FFF2' }} to="/login">here</Link> !</span>
                                         </p>
                                     </div>
                                 </form>
@@ -111,7 +111,7 @@ export default function Register() {
                         </div>
                         <div className="col-lg-5">
                             <div className="bg-secondary h-100 p-5">
-                            <h2 className="text-white mb-4" style={{textAlign: 'center'}}>Register</h2>
+                                <h2 className="text-white mb-4" style={{ textAlign: 'center' }}>Register</h2>
                                 <div className="d-flex mb-4">
                                     <p className="text-white mb-4" >This is register page</p>
                                 </div>

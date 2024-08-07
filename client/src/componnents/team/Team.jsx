@@ -1,7 +1,7 @@
 export default function Team() {
     return (
         <>
-        <div className="container-fluid py-5">
+            <div className="container-fluid py-5">
                 <div className="container">
                     <div className="mx-auto text-center mb-5" style={{ maxWidth: '500px' }}>
                         <h6 className="text-primary text-uppercase">The Team</h6>

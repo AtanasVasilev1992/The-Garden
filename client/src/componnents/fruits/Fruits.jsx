@@ -5,7 +5,7 @@ import FruitCard from "./card/FruitCard";
 
 export default function Fruits() {
     const [fruits] = useGetAllFruits();
-    
+
     return (
         <>
             <div className="container-fluid bg-primary py-5 bg-hero mb-5">

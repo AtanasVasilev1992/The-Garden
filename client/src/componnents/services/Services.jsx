@@ -1,7 +1,7 @@
 export default function Services() {
     return (
         <>
-         <div className="container-fluid py-5">
+            <div className="container-fluid py-5">
                 <div className="container">
                     <div className="row g-5">
                         <div className="col-lg-4 col-md-6">

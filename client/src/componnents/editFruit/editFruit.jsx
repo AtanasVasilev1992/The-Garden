@@ -20,7 +20,7 @@ export default function EditFruit() {
 
     return (
         <>
-         <div className="container-fluid py-5">
+            <div className="container-fluid py-5">
                 <div className="container">
                     <div className="row g-0">
                         <div className="col-lg-7">

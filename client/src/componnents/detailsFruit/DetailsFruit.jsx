@@ -57,7 +57,7 @@ export default function DetailsFruit() {
             <div className="container py-5">
                 <div className="row g-5">
                     <div className="col-lg-8">
-                        {/* Blog Detail Start */}
+
                         <div className="mb-5" style={{ border: '2px solid #f93', padding: '2em'}}>
                             <div className="row g-5 mb-5">
                                 <div className="col-md-6">
@@ -73,8 +73,7 @@ export default function DetailsFruit() {
                                 </div>
                                 )}
                         </div>
-                        {/* Blog Detail End */}
-                        {/* Comment List Start */}
+
                         <div className="mb-5">
                             <h2 className="mb-4">{comments.length} Comments</h2>
                             {comments?.map(comment => (
@@ -88,9 +87,7 @@ export default function DetailsFruit() {
                             }
                             {comments.length === 0 && <p>No comments.</p>}
                         </div>
-                        {/* Comment List End */}
 
-                        {/* Comment Form Start */}
                         {isAuthenticated && (
                             <div className="bg-primary p-5">
                                 <h2 className="text-white mb-4">Leave a comment</h2>
@@ -115,7 +112,7 @@ export default function DetailsFruit() {
                                 </form>
                             </div>
                         )}
-                        {/* Comment Form End */}
+                        
                     </div>
                 </div>
             </div>

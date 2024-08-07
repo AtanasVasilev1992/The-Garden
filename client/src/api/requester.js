@@ -1,45 +1,45 @@
 import { getAccessToken } from "../utils/authUtils.js";
 
 async function requester(method, url, data) {
-    const options = {
-        method: method !== 'GET' ? method : 'GET',
-        headers: {}
-    };
+  const options = {
+    method: method !== "GET" ? method : "GET",
+    headers: {},
+  };
 
-    const accessToken = getAccessToken();
+  const accessToken = getAccessToken();
 
-    if (accessToken) {
-        options.headers['X-Authorization'] = accessToken;
+  if (accessToken) {
+    options.headers["X-Authorization"] = accessToken;
+  }
+
+  if (data) {
+    options.headers["Content-Type"] = "application/json";
+    options.body = JSON.stringify(data);
+  }
+
+  try {
+    const response = await fetch(url, options);
+    if (response.status === 204) {
+      return;
     }
-
-    if (data) {
-        options.headers['Content-Type'] = 'application/json';
-        options.body = JSON.stringify(data);
+    const result = await response.json();
+    if (!response.ok) {
+      throw result;
     }
-
-    try {
-        const response = await fetch(url, options);
-        if (response.status === 204) {
-            return;
-        }
-        const result = await response.json();
-        if (!response.ok) {
-            throw result;
-        }
-        return result;
-    } catch (error) {
-        throw error;
-    }
+    return result;
+  } catch (error) {
+    throw error;
+  }
 }
 
-export const get = requester.bind(null, 'GET');
-export const post = requester.bind(null, 'POST');
-export const put = requester.bind(null, 'PUT');
-export const del = requester.bind(null, 'DELETE');
+export const get = requester.bind(null, "GET");
+export const post = requester.bind(null, "POST");
+export const put = requester.bind(null, "PUT");
+export const del = requester.bind(null, "DELETE");
 
 export default {
-    get,
-    post,
-    put,
-    del
+  get,
+  post,
+  put,
+  del,
 };

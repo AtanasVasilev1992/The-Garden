@@ -75,7 +75,7 @@ export default function Login() {
                         </div>
                         <div className="col-lg-5">
                             <div className="bg-secondary h-100 p-5">
-                                <h2 className="text-white mb-4" style={{textAlign: 'center'}}>Login</h2>
+                                <h2 className="text-white mb-4" style={{ textAlign: 'center' }}>Login</h2>
                                 <div className="d-flex mb-4">
                                     <p className="text-white mb-4" >This is login page</p>
                                 </div>

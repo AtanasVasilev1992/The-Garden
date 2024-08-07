@@ -1,11 +1,11 @@
 export const getAccessToken = () => {
-    const authJSON = localStorage.getItem('auth');
+  const authJSON = localStorage.getItem("auth");
 
-    if (!authJSON) {
-        return '';
-    }
+  if (!authJSON) {
+    return "";
+  }
 
-    const authData = JSON.parse(authJSON);
-    
-    return authData?.accessToken;
+  const authData = JSON.parse(authJSON);
+
+  return authData?.accessToken;
 };
