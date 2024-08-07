@@ -51,6 +51,7 @@ export default function DetailsFruit() {
 
         }
     };
+    
     return (
         <>
             <div className="container py-5">

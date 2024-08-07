@@ -3,6 +3,7 @@ import { useAuthContext } from "../../context/authContext";
 import { useGetOneVegetables } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
 import vegetablesApi from "../../api/vegetables-api";
+import { useCreateVegetableComment, useGetAllVegetableComennts } from "../../hooks/useComment";
 
 const initialValues = {
     comment: ''
@@ -11,9 +12,9 @@ const initialValues = {
 export default function DetailsVegetable() {
     const navigate = useNavigate();
     const { vegetableId } = useParams();
-    // const [commet, dispatchComments] = useGetAllComennts()
-    // const createComment = useCreateComment();
-    const { isAuthenticated, username, userId } = useAuthContext()
+    const [comments, dispatchComments] = useGetAllVegetableComennts(vegetableId)
+    const createComment = useCreateVegetableComment();
+    const { isAuthenticated, email, userId } = useAuthContext()
     const [vegetable] = useGetOneVegetables(vegetableId);
     const {
         changeHandler,
@@ -21,9 +22,9 @@ export default function DetailsVegetable() {
         values,
     } = useForm(initialValues, async ({ comment }) => {
         try {
-            const newComment = await createComment(fruitId, comment);
+            const newComment = await createComment(vegetableId, comment);
 
-            dispatchComments({ type: 'ADD_COMMENT', payload: { ...newComment, author: { username } } })
+            dispatchComments({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } })
         } catch (err) {
             console.log(err.message);
 
@@ -33,9 +34,9 @@ export default function DetailsVegetable() {
     const isOwner = userId === vegetable._ownerId;
 
     const vegetableDeleteHandler = async () => {
-        const isConfirm = confirm(`Are you sure you want delete vegetable: ${vegetable.title} ?`);
+        const isConfirm = confirm(`Are you sure you want delete fruit: ${fruit.title} ?`);
 
-        if(!isConfirm) {
+        if (!isConfirm) {
             return
         };
 
@@ -45,17 +46,17 @@ export default function DetailsVegetable() {
             navigate('/');
         } catch (err) {
             console.log(err.message);
-            
+
         }
     };
 
     return (
         <>
-         <div className="container py-5">
+            <div className="container py-5">
                 <div className="row g-5">
                     <div className="col-lg-8">
                         {/* Blog Detail Start */}
-                        <div className="mb-5" style={{border: '2px solid #34AD54', padding: '2em'}}>
+                        <div className="mb-5" style={{ border: '2px solid #34AD54', padding: '2em' }}>
                             <div className="row g-5 mb-5">
                                 <div className="col-md-6">
                                     <img className="img-fluid w-100" src={vegetable.imageUrl} alt="This is vegetable" />
@@ -73,66 +74,43 @@ export default function DetailsVegetable() {
                         {/* Blog Detail End */}
                         {/* Comment List Start */}
                         <div className="mb-5">
-                            <h2 className="mb-4">? Comments</h2>
-                            <div className="d-flex mb-4">
-                                <img
-                                    src="../../../img/user.jpg"
-                                    className="img-fluid"
-                                    style={{ width: 45, height: 45 }}
-                                />
-                                <div className="ps-3">
-                                    <h6>
-                                        <a href="">John Doe</a>{" "}
-                                        <small>
-                                            <i>01 Jan 2045</i>
-                                        </small>
-                                    </h6>
-                                    <p>
-                                        Mnogo qm!
-                                    </p>
-                                    <button className="btn btn-sm btn-primary">Reply</button>
+                            <h2 className="mb-4">{comments.length} Comments</h2>
+                            {comments?.map(comment => (
+                                <div key={comment._id} className="d-flex mb-4" style={{ border: '1px solid #34AD54' }}>
+                                    <div className="ps-3">
+                                        <h6><p>{comment.author.email} :</p></h6>
+                                        <p>{comment.comment}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            ))
+                            }
+                            {comments.length === 0 && <p>No comments.</p>}
                         </div>
                         {/* Comment List End */}
                         {/* Comment Form Start */}
                         {isAuthenticated && (
-                        <div className="bg-primary p-5">
-                            <h2 className="text-white mb-4">Leave a comment</h2>
-                            <form>
-                                <div className="row g-3">
-                                    <div className="col-12 col-sm-6">
-                                        <input
-                                            type="text"
-                                            className="form-control bg-white border-0"
-                                            placeholder="Your Name"
-                                            style={{ height: 55 }}
-                                        />
+                            <div className="bg-primary p-5">
+                                <h2 className="text-white mb-4">Leave a comment</h2>
+                                <form onSubmit={submitHandler}>
+                                    <div className="row g-3">
+                                        <div className="col-12">
+                                            <textarea
+                                                className="form-control bg-white border-0"
+                                                rows={5}
+                                                name="comment"
+                                                onChange={changeHandler}
+                                                value={values.comment}
+                                                placeholder="Comment"
+                                            />
+                                        </div>
+                                        <div className="col-6">
+                                            <button className="btn btn-secondary w-100 py-3" type="submit">
+                                                Leave Your Comment
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="col-12 col-sm-6">
-                                        <input
-                                            type="email"
-                                            className="form-control bg-white border-0"
-                                            placeholder="Your Email"
-                                            style={{ height: 55 }}
-                                        />
-                                    </div>
-                                    <div className="col-12">
-                                        <textarea
-                                            className="form-control bg-white border-0"
-                                            rows={5}
-                                            placeholder="Comment"
-                                            defaultValue={""}
-                                        />
-                                    </div>
-                                    <div className="col-12">
-                                        <button className="btn btn-secondary w-100 py-3" type="submit">
-                                            Leave Your Comment
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                                </form>
+                            </div>
                         )}
                         {/* Comment Form End */}
                     </div>
