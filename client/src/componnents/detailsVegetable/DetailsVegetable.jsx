@@ -34,7 +34,7 @@ export default function DetailsVegetable() {
     const isOwner = userId === vegetable._ownerId;
 
     const vegetableDeleteHandler = async () => {
-        const isConfirm = confirm(`Are you sure you want delete fruit: ${fruit.title} ?`);
+        const isConfirm = confirm(`Are you sure you want delete vegetable: ${vegetable.title} ?`);
 
         if (!isConfirm) {
             return
