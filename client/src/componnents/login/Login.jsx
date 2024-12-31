@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
 import { useState } from 'react';
+import styles from './Login.module.css'
 
 
 const initialValues = { email: '', password: '' };
@@ -33,7 +34,7 @@ export default function Login() {
                                     <div className="row g-3">
 
                                         <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="email">Email:</label>
+                                            <label className={styles.labelClass} htmlFor="email">Email:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -46,7 +47,7 @@ export default function Login() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="password">Password:</label>
+                                            <label className={styles.labelClass} htmlFor="password">Password:</label>
                                             <input
                                                 className="form-control bg-light border-0 px-4"
                                                 style={{ height: '55px' }}
@@ -67,7 +68,7 @@ export default function Login() {
                                             <button className="btn btn-secondary w-100 py-3" type="submit">Login</button>
                                         </div>
                                         <p className="field">
-                                            <span style={{ fontSize: "1.5em", color: '#f93' }}>If you don't have profile click <Link style={{ fontSize: "1em", color: '#F6FFF2' }} to="/register">here</Link> !</span>
+                                            <span className={styles.labelClass}>If you don't have profile click <Link style={{ fontSize: "1em", color: '#F6FFF2' }} to="/register">here</Link> !</span>
                                         </p>
                                     </div>
                                 </form>
