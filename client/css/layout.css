@@ -1,0 +1,49 @@
+/* Main Container */
+
+.container-fluid {
+    padding-right: var(--spacing-xl);
+    padding-left: var(--spacing-xl);
+}
+
+/* Hero Section */
+.bg-hero {
+    background: url(../img/carousel-1.jpg) top right no-repeat;
+    background-size: cover;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    margin-top: -90px;
+    z-index: 1;
+}
+
+/* Footer */
+.bg-footer {
+    background: linear-gradient(rgba(52, 173, 84, .7), rgba(52, 173, 84, .7)), 
+                url(../img/footer.png) center bottom no-repeat;
+    background-size: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .navbar-dark .navbar-nav .nav-link {
+        padding: var(--spacing-sm);
+    }
+    
+    .banner {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption h4 {
+        font-size: var(--fs-large);
+        font-weight: 500;
+    }
+
+    .carousel-caption h1 {
+        font-size: var(--fs-xlarge);
+        font-weight: 600;
+    }
+}
