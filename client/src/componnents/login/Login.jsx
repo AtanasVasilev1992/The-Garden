@@ -2,21 +2,34 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
 import { useState } from 'react';
+import { validateLoginForm } from '../../utils/validationUtils';
 import styles from './Login.module.css';
 
 const initialValues = { email: '', password: '' };
 
 export default function Login() {
-    const [error, setError] = useState('');
-    const login = useLogin()
+    const [errors, setErrors] = useState({});
+    const [serverError, setServerError] = useState('');
+    const login = useLogin();
     const navigate = useNavigate();
 
-    const loginHandler = async ({ email, password }) => {
+    const loginHandler = async (values) => {
+        setErrors({});
+        setServerError('');
+
+        // Form validations
+        const validationErrors = validateLoginForm(values);
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        // Login try
         try {
-            await login(email, password);
-            navigate('/')
+            await login(values.email, values.password);
+            navigate('/');
         } catch (err) {
-            setError(err.message);
+            setServerError(err.message);
         }
     };
 
@@ -35,7 +48,7 @@ export default function Login() {
                                             Email:
                                         </label>
                                         <input
-                                            className={`form-control ${styles.formInput}`}
+                                            className={`form-control ${styles.formInput} ${errors.email ? 'is-invalid' : ''}`}
                                             type="email"
                                             name="email"
                                             id="email"
@@ -43,6 +56,11 @@ export default function Login() {
                                             onChange={changeHandler}
                                             placeholder="email@example.com"
                                         />
+                                        {errors.email && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.email.join(', ')}
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="col-12">
@@ -50,7 +68,7 @@ export default function Login() {
                                             Password:
                                         </label>
                                         <input
-                                            className={`form-control ${styles.formInput}`}
+                                            className={`form-control ${styles.formInput} ${errors.password ? 'is-invalid' : ''}`}
                                             type="password"
                                             name="password"
                                             id="password"
@@ -58,16 +76,24 @@ export default function Login() {
                                             onChange={changeHandler}
                                             placeholder="******"
                                         />
+                                        {errors.password && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.password.join(', ')}
+                                            </div>
+                                        )}
                                     </div>
 
-                                    {error && (
+                                    {serverError && (
                                         <div className="col-12">
-                                            <p className={styles.errorMessage}>{error}</p>
+                                            <div className={styles.serverError}>{serverError}</div>
                                         </div>
                                     )}
 
                                     <div className="col-3">
-                                        <button className={`btn btn-secondary ${styles.submitButton}`} type="submit">
+                                        <button
+                                            className={`btn btn-secondary ${styles.submitButton}`}
+                                            type="submit"
+                                        >
                                             Login
                                         </button>
                                     </div>
