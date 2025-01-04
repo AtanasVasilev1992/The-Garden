@@ -1,14 +1,37 @@
 :root {
-    --primary-color: #34AD54;
-    --secondary-color: #FF9933;
-    --light-color: #F6FFF2;
-    --dark-color: #263A4F;
-    
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    
-    --font-size-sm: 0.875rem;
-    --font-size-md: 1rem;
-    --font-size-lg: 1.25rem;
-  }
+  /* Colors */
+  --primary: #34AD54;
+  --secondary: #FF9933;
+  --light: #F6FFF2;
+  --dark: #263A4F;
+  --white: #FFFFFF;
+  --gray: #EDEDED;
+
+  /* Fonts */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+
+  /* Font Sizes */
+  --fs-small: 0.875rem;
+  --fs-normal: 1rem;
+  --fs-medium: 1.25rem;
+  --fs-large: 1.5rem;
+  --fs-xlarge: 2rem;
+  --fs-display: 3.5rem;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-ease: ease-in-out;
+}
