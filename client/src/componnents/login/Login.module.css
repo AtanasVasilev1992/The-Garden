@@ -1,4 +1,57 @@
+.loginContainer {
+    padding: var(--spacing-xl) 0;
+}
+
+.formSection {
+    background-color: var(--primary);
+    height: 100%;
+    padding: var(--spacing-xl);
+}
+
+.infoSection {
+    background-color: var(--secondary);
+    height: 100%;
+    padding: var(--spacing-xl);
+}
+
 .labelClass {
-    font-size: 1.5em;
-    color: #f93
+    font-size: var(--fs-large);
+    color: var(--secondary);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.formInput {
+    height: 55px;
+    background-color: var(--light);
+    border: none;
+    padding: 0 var(--spacing-md);
+}
+
+.errorMessage {
+    color: red;
+    font-size: var(--fs-medium);
+    margin-top: var(--spacing-xs);
+}
+
+.submitButton {
+    width: 100%;
+    padding: var(--spacing-sm) 0;
+}
+
+.registerLink {
+    font-size: 1em;
+    color: var(--light);
+    text-decoration: none;
+}
+
+.infoTitle {
+    color: var(--white);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.infoText {
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
 }
