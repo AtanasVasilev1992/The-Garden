@@ -1,0 +1,15 @@
+/* Buttons */
+
+.btn {
+    font-family: var(--font-primary);
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: var(--transiton-speed) var(--transiton-ease);
+}
+
+.btn-primary,
+.btn-secondary {
+    color: var(--white);
+}
+
+/* Forms */
