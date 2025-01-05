@@ -1,125 +1,171 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
-
 import { useRegister } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
+import { validateRegisterForm } from '../../utils/validationUtils';
+import styles from './Register.module.css';
 
-const initialValues = { email: '', username: '', password: '', rePassword: '' };
+const initialValues = { 
+    email: '', 
+    username: '', 
+    password: '', 
+    rePassword: '' 
+};
 
 export default function Register() {
-    const [error, setError] = useState('');
+    const [errors, setErrors] = useState({});
+    const [serverError, setServerError] = useState('');
     const register = useRegister();
     const navigate = useNavigate();
 
     const registerHandler = async (values) => {
-        if (values.password !== values.rePassword) {
-            return setError('Password missmatch!');
-        };
+        // Reset previous errors
+        setErrors({});
+        setServerError('');
+
+        // Form validation
+        const validationErrors = validateRegisterForm(values);
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
 
         try {
             await register(values.email, values.password);
-
             navigate('/');
         } catch (err) {
-            setError(err.message);
-        };
+            setServerError(err.message);
+        }
     };
 
-    const {
-        values,
-        changeHandler,
-        submitHandler
-    } = useForm(initialValues, registerHandler);
+    const { values, changeHandler, submitHandler } = useForm(initialValues, registerHandler);
 
     return (
-        <>
-            <div className="container-fluid py-5">
-                <div className="container">
-                    <div className="row g-0">
-                        <div className="col-lg-7">
-                            <div className="bg-primary h-100 p-5">
-                                <form onSubmit={submitHandler}>
-                                    <div className="row g-3">
-
-                                        <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="email">Email:</label>
-                                            <input
-                                                className="form-control bg-light border-0 px-4"
-                                                style={{ height: '55px' }}
-                                                type="email"
-                                                name="email"
-                                                id='email'
-                                                value={values.email}
-                                                onChange={changeHandler}
-                                                placeholder="email@example.com"
-                                            />
-                                        </div>
-                                        <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="username">Name:</label>
-                                            <input
-                                                className="form-control bg-light border-0 px-4"
-                                                style={{ height: '55px' }}
-                                                type="text"
-                                                name="username"
-                                                id='username'
-                                                value={values.username}
-                                                onChange={changeHandler}
-                                                placeholder="Alex Ivanov"
-                                            />
-                                        </div>
-                                        <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="password">Password:</label>
-                                            <input
-                                                className="form-control bg-light border-0 px-4"
-                                                style={{ height: '55px' }}
-                                                type="password"
-                                                name="password"
-                                                id='password'
-                                                value={values.password}
-                                                onChange={changeHandler}
-                                                placeholder="******"
-                                            />
-                                        </div>
-                                        <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="rePassword">Repeat Password:</label>
-                                            <input
-                                                className="form-control bg-light border-0 px-4"
-                                                style={{ height: '55px' }}
-                                                type="password"
-                                                name="rePassword"
-                                                id='rePassword'
-                                                value={values.rePassword}
-                                                onChange={changeHandler}
-                                                placeholder="******"
-                                            />
-                                        </div>
-                                        {error && (
-                                            <p>
-                                                <span style={{ color: 'red', fontSize: "18px" }}>{error}</span>
-                                            </p>
+        <div className={styles.registerContainer}>
+            <div className="container">
+                <div className="row g-0">
+                    <div className="col-lg-7">
+                        <div className={styles.formSection}>
+                            <form onSubmit={submitHandler}>
+                                <div className="row g-3">
+                                    <div className="col-12">
+                                        <label className={styles.labelClass} htmlFor="email">
+                                            Email:
+                                        </label>
+                                        <input
+                                            className={`form-control ${styles.formInput} ${errors.email ? 'is-invalid' : ''}`}
+                                            type="email"
+                                            name="email"
+                                            id="email"
+                                            value={values.email}
+                                            onChange={changeHandler}
+                                            placeholder="email@example.com"
+                                        />
+                                        {errors.email && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.email.join(', ')}
+                                            </div>
                                         )}
-                                        <div className="col-3">
-                                            <button className="btn btn-secondary w-100 py-3" type="submit">Register</button>
+                                    </div>
+
+                                    <div className="col-12">
+                                        <label className={styles.labelClass} htmlFor="username">
+                                            Name:
+                                        </label>
+                                        <input
+                                            className={`form-control ${styles.formInput} ${errors.username ? 'is-invalid' : ''}`}
+                                            type="text"
+                                            name="username"
+                                            id="username"
+                                            value={values.username}
+                                            onChange={changeHandler}
+                                            placeholder="Alex Ivanov"
+                                        />
+                                        {errors.username && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.username.join(', ')}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div className="col-12">
+                                        <label className={styles.labelClass} htmlFor="password">
+                                            Password:
+                                        </label>
+                                        <input
+                                            className={`form-control ${styles.formInput} ${errors.password ? 'is-invalid' : ''}`}
+                                            type="password"
+                                            name="password"
+                                            id="password"
+                                            value={values.password}
+                                            onChange={changeHandler}
+                                            placeholder="******"
+                                        />
+                                        {errors.password && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.password.join(', ')}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div className="col-12">
+                                        <label className={styles.labelClass} htmlFor="rePassword">
+                                            Repeat Password:
+                                        </label>
+                                        <input
+                                            className={`form-control ${styles.formInput} ${errors.rePassword ? 'is-invalid' : ''}`}
+                                            type="password"
+                                            name="rePassword"
+                                            id="rePassword"
+                                            value={values.rePassword}
+                                            onChange={changeHandler}
+                                            placeholder="******"
+                                        />
+                                        {errors.rePassword && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.rePassword.join(', ')}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {serverError && (
+                                        <div className="col-12">
+                                            <div className={styles.serverError}>{serverError}</div>
                                         </div>
-                                        <p className="field">
-                                            <span style={{ fontSize: "1.5em", color: '#f93' }}>If you already have a profile click <Link style={{ fontSize: "1em", color: '#F6FFF2' }} to="/login">here</Link> !</span>
+                                    )}
+
+                                    <div className="col-3">
+                                        <button className={`btn btn-secondary ${styles.submitButton}`} type="submit">
+                                            Register
+                                        </button>
+                                    </div>
+
+                                    <div className="col-12">
+                                        <p>
+                                            <span className={styles.labelClass}>
+                                                If you already have a profile click{' '}
+                                                <Link to="/login" className={styles.loginLink}>
+                                                    here
+                                                </Link>
+                                                !
+                                            </span>
                                         </p>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div className="col-lg-5">
-                            <div className="bg-secondary h-100 p-5">
-                                <h2 className="text-white mb-4" style={{ textAlign: 'center' }}>Register</h2>
-                                <div className="d-flex mb-4">
-                                    <p className="text-white mb-4" >This is register page</p>
                                 </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-5">
+                        <div className={styles.infoSection}>
+                            <h2 className={styles.infoTitle}>Register</h2>
+                            <div className="d-flex mb-4">
+                                <p className={styles.infoText}>This is register page</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
