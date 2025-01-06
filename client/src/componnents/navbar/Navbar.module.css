@@ -1,0 +1,72 @@
+.navbarContainer {
+    background-color: var(--primary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navLink {
+    padding: 30px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.navLink:hover,
+.navLink.active {
+    background-color: var(--secondary);
+}
+
+/* Custom Hamburger Icon */
+.hamburgerIcon {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburgerIcon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary);
+    border-radius: 3px;
+}
+
+/* Navbar Toggler */
+.navbarToggler {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid var(--primary) !important;
+    border-radius: 5px;
+}
+
+.navbarToggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Mobile Navigation */
+@media (max-width: 991.98px) {
+    .navLink {
+        padding: 10px 15px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .navCollapse {
+        background-color: var(--primary);
+        padding: 10px 0;
+    }
+}
+
+/* Animation for mobile menu */
+.navCollapse {
+    transition: all 0.3s ease-in-out;
+}
+
+.navCollapse.show {
+    display: block;
+}
