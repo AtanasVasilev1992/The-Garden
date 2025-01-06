@@ -1,0 +1,74 @@
+.addProductContainer {
+    padding: var(--spacing-xl) 0;
+}
+
+.formSection {
+    background-color: var(--primary);
+    height: 100%;
+    padding: var(--spacing-xl);
+}
+
+.infoSection {
+    background-color: var(--secondary);
+    height: 100%;
+    padding: var(--spacing-xl);
+}
+
+.labelClass {
+    font-size: var(--fs-large);
+    color: var(--secondary);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.formInput {
+    height: 55px;
+    background-color: var(--light);
+    border: none;
+    padding: 0 var(--spacing-md);
+    transition: border-color var(--transition-speed) var(--transition-ease);
+}
+
+.textArea {
+    background-color: var(--light);
+    border: none;
+    padding: var(--spacing-md);
+    transition: border-color var(--transition-speed) var(--transition-ease);
+}
+
+.formInput:focus,
+.textArea:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 0.2rem rgba(255, 153, 51, 0.25);
+}
+
+.errorMessage {
+    color: #dc3545;
+    font-size: var(--fs-small);
+    margin-top: var(--spacing-xs);
+}
+
+.serverError {
+    color: #dc3545;
+    font-size: var(--fs-medium);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: var(--border-radius-sm);
+}
+
+.submitButton {
+    width: 100%;
+    padding: var(--spacing-sm) 0;
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+}
+
+.infoTitle {
+    color: var(--white);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
