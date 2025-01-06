@@ -30,9 +30,8 @@ function Navbar({ auth }) {
                     onClick={toggleNavbar}
                     aria-expanded={isOpen}
                     aria-label="Toggle navigation"
-                    style={{ backgroundColor: 'white' }} // Добавяме бял фон на бутона
+                    style={{ backgroundColor: 'white' }} 
                 >
-                    {/* Custom hamburger icon */}
                     <div className={styles.hamburgerIcon}>
                         <span></span>
                         <span></span>
