@@ -1,88 +1,130 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useState } from 'react';
 import { useGetOneVegetables } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
+import { validateProductForm } from '../../utils/validationUtils';
 import vegetablesApi from "../../api/vegetables-api";
-
+import styles from './EditProduct.module.css';
 
 export default function EditVegetable() {
     const navigate = useNavigate();
     const { vegetableId } = useParams();
-    const [vegetable, setVegetable] = useGetOneVegetables(vegetableId);
+    const [vegetable] = useGetOneVegetables(vegetableId);
+    const [errors, setErrors] = useState({});
+    const [serverError, setServerError] = useState('');
+
+    const editHandler = async (values) => {
+        setErrors({});
+        setServerError('');
+
+        const validationErrors = validateProductForm(values);
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        try {
+            await vegetablesApi.update(vegetableId, values);
+            navigate(`/vegetables/${vegetableId}/details`);
+        } catch (err) {
+            setServerError(err.message);
+        }
+    };
+
     const {
+        values,
         changeHandler,
         submitHandler,
-        values,
-    } = useForm(vegetable, async (values) => {
-        await vegetablesApi.update(vegetableId, values);
-        navigate(`/vegetables/${vegetableId}/details`);
-    }, true);
+    } = useForm(vegetable, editHandler, true);
 
     return (
-        <>
-            <div className="container-fluid py-5">
-                <div className="container">
-                    <div className="row g-0">
-                        <div className="col-lg-7">
-                            <div className="bg-primary h-100 p-5">
-                                <form onSubmit={submitHandler}>
-                                    <div className="row g-3">
-
-                                        <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="title">Title:</label>
-                                            <input
-                                                className="form-control bg-light border-0 px-4"
-                                                style={{ height: '55px' }}
-                                                type="text"
-                                                name="title"
-                                                id='title'
-                                                onChange={changeHandler}
-                                                value={values.title}
-                                                placeholder="Title..."
-                                            />
-                                        </div>
-                                        <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="imageUrl">Image URL:</label>
-                                            <input
-                                                className="form-control bg-light border-0 px-4"
-                                                style={{ height: '55px' }}
-                                                type="text"
-                                                name="imageUrl"
-                                                id='imageUrl'
-                                                onChange={changeHandler}
-                                                value={values.imageUrl}
-                                                placeholder="ImageUrl..."
-                                            />
-                                        </div>
-                                        <div className="col-12">
-                                            <label style={{ fontSize: "1.5em", color: '#f93' }} htmlFor="description">Description:</label>
-                                            <textarea
-                                                className="form-control bg-light border-0 px-4 py-3"
-                                                rows="2"
-                                                name="description"
-                                                id="description"
-                                                onChange={changeHandler}
-                                                value={values.description}
-                                                placeholder="Description"
-                                            ></textarea>
-                                        </div>
-                                        <div className="col-3">
-                                            <button className="btn btn-secondary w-100 py-3" type="submit">Edit</button>
-                                        </div>
+        <div className={styles.editProductContainer}>
+            <div className="container">
+                <div className="row g-0">
+                    <div className="col-lg-7">
+                        <div className={styles.formSection}>
+                            <form onSubmit={submitHandler}>
+                                <div className="row g-3">
+                                    <div className="col-12">
+                                        <label className={styles.labelClass} htmlFor="title">Title:</label>
+                                        <input
+                                            className={`form-control ${styles.formInput} ${errors.title ? 'is-invalid' : ''}`}
+                                            type="text"
+                                            name="title"
+                                            id="title"
+                                            value={values.title}
+                                            onChange={changeHandler}
+                                            placeholder="Title..."
+                                        />
+                                        {errors.title && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.title.join(', ')}
+                                            </div>
+                                        )}
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div className="col-lg-5">
-                            <div className="bg-secondary h-100 p-5">
-                                <h2 className="text-white mb-4">Edit {values.title}</h2>
-                                <div className="d-flex mb-4">
-                                    <p className="text-white mb-4">We appreciate your help</p>
+
+                                    <div className="col-12">
+                                        <label className={styles.labelClass} htmlFor="imageUrl">Image URL:</label>
+                                        <input
+                                            className={`form-control ${styles.formInput} ${errors.imageUrl ? 'is-invalid' : ''}`}
+                                            type="text"
+                                            name="imageUrl"
+                                            id="imageUrl"
+                                            value={values.imageUrl}
+                                            onChange={changeHandler}
+                                            placeholder="Image URL..."
+                                        />
+                                        {errors.imageUrl && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.imageUrl.join(', ')}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div className="col-12">
+                                        <label className={styles.labelClass} htmlFor="description">Description:</label>
+                                        <textarea
+                                            className={`form-control ${styles.textArea} ${errors.description ? 'is-invalid' : ''}`}
+                                            rows="3"
+                                            name="description"
+                                            id="description"
+                                            value={values.description}
+                                            onChange={changeHandler}
+                                            placeholder="Description"
+                                        ></textarea>
+                                        {errors.description && (
+                                            <div className={styles.errorMessage}>
+                                                {errors.description.join(', ')}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {serverError && (
+                                        <div className="col-12">
+                                            <div className={styles.serverError}>{serverError}</div>
+                                        </div>
+                                    )}
+
+                                    <div className="col-3">
+                                        <button className={`btn btn-secondary ${styles.submitButton}`} type="submit">
+                                            Edit Vegetable
+                                        </button>
+                                    </div>
                                 </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-5">
+                        <div className={styles.infoSection}>
+                            <h2 className={styles.infoTitle}>Edit {values.title}</h2>
+                            <div className="d-flex mb-4">
+                                <p className="text-white mb-4">We appreciate your help</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
-    )
+        </div>
+    );
 }
