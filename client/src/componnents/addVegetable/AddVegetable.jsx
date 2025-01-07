@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useCreateVegetable } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
 import { validateProductForm } from '../../utils/validationUtils';
-import styles from '../addFruit/AddProduct.module.css';
+import styles from '../../../css/AddProduct.module.css';
 
 const initialValues = {
     title: '',
