@@ -1,115 +1,134 @@
-# The Garden - React Application
+# 🌿 The Garden - React Application
 
-## 📝 Описание на проекта
-The Garden е React приложение за споделяне на информация за плодове и зеленчуци. Потребителите могат да разглеждат, добавят, редактират и коментират различни плодове и зеленчуци.
+## 📖 About
+The Garden is a web application for sharing information about fruits and vegetables. Users can browse, add, edit, and comment on different products while learning about organic food production.
 
-## 🛠 Технически стек
-- React
-- React Router Dom
+## 🚀 Features
+- 👥 User Authentication (Register/Login)
+- 🔒 Protected Routes
+- 📝 CRUD Operations for Products
+- 💬 Commenting System
+- 📱 Responsive Design
+- ✨ Form Validation
+- 🎨 Modern UI/UX
+
+## 🛠️ Built With
+- React 18
+- React Router Dom 6
+- Bootstrap 5
+- CSS Modules
 - Custom Hooks
 - Context API
-- Bootstrap
-- CSS Modules
 
-## 🏗 Структура на проекта
+## ⚙️ Prerequisites
+- Node.js (version 14.0.0 or higher)
+- npm (version 6.0.0 or higher)
 
-### Компоненти
-```
-src/
-├── components/
-│   ├── auth/
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   └── Logout.jsx
-│   ├── fruits/
-│   │   ├── Fruits.jsx
-│   │   ├── AddFruit.jsx
-│   │   ├── EditFruit.jsx
-│   │   └── DetailsFruit.jsx
-│   ├── vegetables/
-│   │   ├── Vegetables.jsx
-│   │   ├── AddVegetable.jsx
-│   │   ├── EditVegetable.jsx
-│   │   └── DetailsVegetable.jsx
-│   └── common/
-│       ├── Navbar.jsx
-│       ├── Footer.jsx
-│       └── Banner.jsx
-```
+## 🔧 Installation and Setup
 
-### Custom Hooks
-- `useAuth` - Управление на автентикацията
-- `useForm` - Управление на форми
-- `useComment` - Работа с коментари
-- `useFruits/useVegetables` - CRUD операции
-- `usePersistedState` - Персистиране на състояние
-
-## 🔐 Автентикация и Оторизация
-- Публичен достъп:
-  - Начална страница
-  - Разглеждане на плодове и зеленчуци
-  - Преглед на детайли
-  - Вход/Регистрация
-
-- Защитени функционалности:
-  - Добавяне на нови продукти
-  - Редактиране на съществуващи
-  - Изтриване на продукти
-  - Добавяне на коментари
-
-## 🔄 Валидация на данни
-### Форми за вход/регистрация:
-- Email валидация
-- Парола (минимум 6 символа)
-- Потвърждение на парола
-- Обработка на сървърни грешки
-
-### Форми за продукти:
-- Задължително заглавие
-- Валиден URL на изображение
-- Описание (минимум 10 символа)
-
-## 📁 Организация на CSS
-Стиловете са организирани в три основни файла:
-1. `global.css` - Глобални стилове и променливи
-2. `components.css` - Компонентно-специфични стилове
-3. CSS модули за специфични компоненти
-
-## 🚀 Инсталация и стартиране
-
+1. **Clone the repository**
 ```bash
-# Клониране на проекта
-git clone https://github.com/your-username/the-garden.git
-
-# Инсталиране на зависимости
+git clone https://github.com/AtanasVasilev1992/The-Garden.git
 cd the-garden
-npm install
+```
 
-# Стартиране в режим на разработка
+2. **Install dependencies**
+```bash
+npm install
+```
+
+3. **Start the server**
+```bash
+cd server
+node server
+```
+The server will run on http://localhost:3030
+
+4. **Start the React application**
+```bash
+# Navigate back to the main directory
+cd ..
 npm run dev
 ```
+The application will run on http://localhost:5173
 
-## 🔧 API Интеграция
-Базов URL: `http://localhost:3030`
+## 🏗️ Project Structure
+```
+the-garden/
+├── src/
+│   ├── api/              # API service layer
+│   ├── components/       # React components
+│   ├── context/         # Context providers
+│   ├── hooks/           # Custom hooks
+│   ├── utils/           # Utility functions
+│   └── styles/          # Global styles and CSS modules
+├── server/              # Backend server
+└── public/              # Static assets
+```
 
-Endpoints:
-- `/users` - Автентикация
-- `/data/fruits` - CRUD операции за плодове
-- `/data/vegetables` - CRUD операции за зеленчуци
-- `/data/comments` - Работа с коментари
+## 🔑 Authentication
+- Public Access:
+  - Home page
+  - Browse products
+  - View details
+  - Login/Register
+- Protected Features:
+  - Add new products
+  - Edit products
+  - Delete products
+  - Add comments
 
-## 🎯 Бъдещи подобрения
-1. Имплементиране на пагинация
-2. Търсене и филтриране
-3. Добавяне на категории
-4. Разширена валидация на форми
-5. Подобрена обработка на грешки
-6. Интеграция с външно API за данни
-7. Unit тестове
-8. E2E тестове
+## 🔄 API Endpoints
+- Base URL: `http://localhost:3030`
 
-## 👥 Екип
-- [Вашето име] - Разработчик
+### Authentication
+- POST `/users/register` - Register new user
+- POST `/users/login` - Login user
+- GET `/users/logout` - Logout user
 
-## 📄 Лиценз
-MIT
+### Products
+- GET `/data/fruits` - Get all fruits
+- GET `/data/vegetables` - Get all vegetables
+- POST `/data/fruits` - Create new fruit
+- POST `/data/vegetables` - Create new vegetable
+- PUT `/data/fruits/:id` - Update fruit
+- PUT `/data/vegetables/:id` - Update vegetable
+- DELETE `/data/fruits/:id` - Delete fruit
+- DELETE `/data/vegetables/:id` - Delete vegetable
+
+### Comments
+- GET `/data/comments` - Get comments
+- POST `/data/comments` - Create comment
+
+## 🎨 Styling
+- CSS Modules for component-specific styles
+- Global variables for consistent theming
+- Responsive design breakpoints
+- CSS animations and transitions
+
+## ✅ Form Validation
+- Required field validation
+- Email format validation
+- Password requirements
+- Image URL validation
+- Length restrictions
+- Real-time error feedback
+
+## 🔜 Future Improvements
+- [ ] Search functionality
+- [ ] Product categories
+- [ ] User profiles
+- [ ] Rating system
+- [ ] Image upload
+- [ ] Pagination
+- [ ] Unit tests
+- [ ] E2E tests
+
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+## 👥 Authors
+- [Atanas Vasilev]
