@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom"
 
 import { AuthContextProvider } from "./context/authContext"
 import { ToastProvider } from "./componnents/common/toast/Toast"
-import { ConfirmProvider } from "./components/common/confirmDialog/ConfirmDialog";
-import { LoadingProvider } from "./components/common/loading/Loading";
+import { ConfirmProvider } from "./componnents/common/confirmDialog/ConfirmDialog";
+import { LoadingProvider } from "./componnents/common/loading/Loading";
 
 import PrivateGuard from "./componnents/common/PrivateGuard"
 import GuestGuard from "./componnents/common/GuestGuard"

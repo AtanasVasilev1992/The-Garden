@@ -4,7 +4,7 @@ import { useGetOneVegetables } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
 import { validateProductForm } from '../../utils/validationUtils';
 import vegetablesApi from "../../api/vegetables-api";
-import styles from './EditProduct.module.css';
+import styles from '../../../css/EditProduct.module.css';
 
 export default function EditVegetable() {
     const navigate = useNavigate();
