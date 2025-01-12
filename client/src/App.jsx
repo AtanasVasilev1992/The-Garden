@@ -1,6 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 
 import { AuthContextProvider } from "./context/authContext"
+import { ToastProvider } from "./componnents/common/toast/Toast"
+import { ConfirmProvider } from "./components/common/confirmDialog/ConfirmDialog";
+import { LoadingProvider } from "./components/common/loading/Loading";
 
 import PrivateGuard from "./componnents/common/PrivateGuard"
 import GuestGuard from "./componnents/common/GuestGuard"
@@ -28,36 +31,42 @@ import EditFruit from "./componnents/editFruit/editFruit"
 function App() {
     return (
         <AuthContextProvider >
-            <div className="box">
-                <Topbar />
-                <div className="main-content">
-                    <Routes>
-                        <Route path='/' element={<Home />} />
-                        <Route path='/fruits' element={<Fruits />} />
-                        <Route path='/fruits/:fruitId/edit' element={<EditFruit />} />
-                        <Route path='/fruits/:fruitId/details' element={<DetailsFruit />} />
-                        <Route path='/vegetables' element={<Vegetables />} />
-                        <Route path='/vegetables/:vegetableId/edit' element={<EditVegetable />} />
-                        <Route path='/vegetables/:vegetableId/details' element={<DetailsVegetable />} />
-                        <Route path='/about' element={<About />} />
-                        <Route path='/features' element={<Features />} />
-                        <Route path='/team' element={<Team />} />
-                        <Route element={<GuestGuard />}>
-                            <Route path='/login' element={<Login />} />
-                            <Route path='/register' element={<Register />} />
-                        </Route>
-                        <Route element={<PrivateGuard />}>
-                            <Route path='/fruits/create' element={<AddFruit />} />
-                            <Route path='/vegetables/create' element={<AddVegetable />} />
-                            <Route path='/logout' element={<Logout />} />
-                        </Route>
-                        <Route path="/not-found" element={<NotFound />} />
-                        <Route path="/*" element={<NotFound />} />
-                    </Routes>
-                </div>
+            <LoadingProvider>
+                <ToastProvider>
+                    <ConfirmProvider>
+                        <div className="box">
+                            <Topbar />
+                            <div className="main-content">
+                                <Routes>
+                                    <Route path='/' element={<Home />} />
+                                    <Route path='/fruits' element={<Fruits />} />
+                                    <Route path='/fruits/:fruitId/edit' element={<EditFruit />} />
+                                    <Route path='/fruits/:fruitId/details' element={<DetailsFruit />} />
+                                    <Route path='/vegetables' element={<Vegetables />} />
+                                    <Route path='/vegetables/:vegetableId/edit' element={<EditVegetable />} />
+                                    <Route path='/vegetables/:vegetableId/details' element={<DetailsVegetable />} />
+                                    <Route path='/about' element={<About />} />
+                                    <Route path='/features' element={<Features />} />
+                                    <Route path='/team' element={<Team />} />
+                                    <Route element={<GuestGuard />}>
+                                        <Route path='/login' element={<Login />} />
+                                        <Route path='/register' element={<Register />} />
+                                    </Route>
+                                    <Route element={<PrivateGuard />}>
+                                        <Route path='/fruits/create' element={<AddFruit />} />
+                                        <Route path='/vegetables/create' element={<AddVegetable />} />
+                                        <Route path='/logout' element={<Logout />} />
+                                    </Route>
+                                    <Route path="/not-found" element={<NotFound />} />
+                                    <Route path="/*" element={<NotFound />} />
+                                </Routes>
+                            </div>
 
-                <Footer />
-            </div>
+                            <Footer />
+                        </div>
+                    </ConfirmProvider>
+                </ToastProvider>
+            </LoadingProvider>
         </AuthContextProvider>
     )
 }
