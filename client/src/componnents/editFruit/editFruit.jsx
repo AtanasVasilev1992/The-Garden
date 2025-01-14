@@ -1,19 +1,28 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useGetOneFruits } from "../../hooks/useFruits";
 import { useForm } from "../../hooks/useForm";
 import { validateProductForm } from '../../utils/validationUtils';
+import { useToast } from '../common/toast/Toast';
+import { useLoading } from '../common/loading/Loading';
+import LoadingSpinner from '../common/loadingSpinner/LoadingSpinner';
 import fruitsApi from "../../api/fruits-api";
 import styles from '../../../css/EditProduct.module.css';
 
-
+const initialValues = {
+    title: '',
+    imageUrl: '',
+    description: ''
+};
 
 export default function EditFruit() {
     const navigate = useNavigate();
     const { fruitId } = useParams();
-    const [fruit] = useGetOneFruits(fruitId);
-    const [errors, setErrors] = useState();
+    const [fruit, setFruit] = useGetOneFruits(fruitId);
+    const [errors, setErrors] = useState({});
     const [serverError, setServerError] = useState('');
+    const toast = useToast();
+    const { showLoading, hideLoading } = useLoading();
 
     const editHandler = async (values) => {
         setErrors({});
@@ -26,10 +35,15 @@ export default function EditFruit() {
         }
 
         try {
+            showLoading();
             await fruitsApi.update(fruitId, values);
+            toast('Fruit updated successfully!', 'success');
             navigate(`/fruits/${fruitId}/details`);
         } catch (err) {
             setServerError(err.message);
+            toast(err.message, 'error');
+        } finally {
+            hideLoading();
         }
     };
 
@@ -37,7 +51,11 @@ export default function EditFruit() {
         values,
         changeHandler,
         submitHandler,
-    } = useForm(fruit, editHandler, true);
+    } = useForm(fruit || initialValues, editHandler, true);
+
+    if (!fruit) {
+        return <LoadingSpinner />;
+    }
 
     return (
         <div className={styles.editProductContainer}>
