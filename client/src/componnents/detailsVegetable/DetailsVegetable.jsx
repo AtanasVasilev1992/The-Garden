@@ -4,10 +4,10 @@ import { useGetOneVegetables } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
 import vegetablesApi from "../../api/vegetables-api";
 import { useCreateVegetableComment, useGetAllVegetableComennts } from "../../hooks/useComment";
-import { useConfirm } from "../common/confirmDialog";
-import { useLoading } from "../../components/Loading";
-import { useToast } from "../../components/Toast";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import { useConfirm } from "../common/confirmDialog/ConfirmDialog";
+import { useLoading } from "../common/loading/Loading";
+import { useToast } from "../common/toast/Toast";
+import LoadingSpinner from "../common/loadingSpinner/LoadingSpinner";
 
 const initialValues = {
     comment: ''
