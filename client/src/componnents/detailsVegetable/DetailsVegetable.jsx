@@ -4,51 +4,75 @@ import { useGetOneVegetables } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
 import vegetablesApi from "../../api/vegetables-api";
 import { useCreateVegetableComment, useGetAllVegetableComennts } from "../../hooks/useComment";
+import { useConfirm } from "../common/confirmDialog";
+import { useLoading } from "../../components/Loading";
+import { useToast } from "../../components/Toast";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const initialValues = {
     comment: ''
-}
+};
 
 export default function DetailsVegetable() {
     const navigate = useNavigate();
     const { vegetableId } = useParams();
-    const [comments, dispatchComments] = useGetAllVegetableComennts(vegetableId)
+    const [comments, dispatchComments] = useGetAllVegetableComennts(vegetableId);
     const createComment = useCreateVegetableComment();
-    const { isAuthenticated, email, userId } = useAuthContext()
+    const { isAuthenticated, email, userId } = useAuthContext();
     const [vegetable] = useGetOneVegetables(vegetableId);
+    const confirm = useConfirm();
+    const { showLoading, hideLoading } = useLoading();
+    const showToast = useToast();
+
     const {
         changeHandler,
         submitHandler,
         values,
     } = useForm(initialValues, async ({ comment }) => {
+        if (!comment.trim()) {
+            showToast('Comment cannot be empty', 'error');
+            return;
+        }
+
         try {
+            showLoading();
             const newComment = await createComment(vegetableId, comment);
-
-            dispatchComments({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } })
+            dispatchComments({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } });
+            showToast('Comment added successfully', 'success');
         } catch (err) {
-            console.log(err.message);
-
+            showToast(err.message, 'error');
+        } finally {
+            hideLoading();
         }
     });
 
     const isOwner = userId === vegetable._ownerId;
 
     const vegetableDeleteHandler = async () => {
-        const isConfirm = confirm(`Are you sure you want delete vegetable: ${vegetable.title} ?`);
+        const confirmed = await confirm(
+            `Are you sure you want to delete vegetable: ${vegetable.title}?`,
+            'Confirm Deletion'
+        );
 
-        if (!isConfirm) {
-            return
-        };
+        if (!confirmed) {
+            return;
+        }
 
         try {
+            showLoading();
             await vegetablesApi.remove(vegetableId);
-
+            showToast('Vegetable deleted successfully', 'success');
             navigate('/');
         } catch (err) {
-            console.log(err.message);
-
+            showToast(err.message, 'error');
+        } finally {
+            hideLoading();
         }
     };
+
+    if (!vegetable) {
+        return <LoadingSpinner />;
+    }
 
     return (
         <>
@@ -58,17 +82,27 @@ export default function DetailsVegetable() {
                         <div className="mb-5" style={{ border: '2px solid #34AD54', padding: '2em' }}>
                             <div className="row g-5 mb-5">
                                 <div className="col-md-6">
-                                    <img className="img-fluid w-100" src={vegetable.imageUrl} alt="This is vegetable" />
+                                    <img className="img-fluid w-100" src={vegetable.imageUrl} alt={vegetable.title} />
                                 </div>
                             </div>
                             <h1 className="mb-4">{vegetable.title}</h1>
                             <p>{vegetable.description}</p>
-                            {isOwner &&
-                                (<div >
-                                    <Link to={`/vegetables/${vegetableId}/edit`} className="btn btn-primary py-md-3 px-md-5 me-3">Edit</Link>
-                                    <Link to="#" className="btn btn-secondary py-md-3 px-md-5" onClick={vegetableDeleteHandler}>Delete</Link>
+                            {isOwner && (
+                                <div>
+                                    <Link 
+                                        to={`/vegetables/${vegetableId}/edit`} 
+                                        className="btn btn-primary py-md-3 px-md-5 me-3"
+                                    >
+                                        Edit
+                                    </Link>
+                                    <button 
+                                        className="btn btn-secondary py-md-3 px-md-5"
+                                        onClick={vegetableDeleteHandler}
+                                    >
+                                        Delete
+                                    </button>
                                 </div>
-                                )}
+                            )}
                         </div>
 
                         <div className="mb-5">
@@ -80,8 +114,7 @@ export default function DetailsVegetable() {
                                         <p>{comment.comment}</p>
                                     </div>
                                 </div>
-                            ))
-                            }
+                            ))}
                             {comments.length === 0 && <p>No comments.</p>}
                         </div>
 
@@ -101,7 +134,10 @@ export default function DetailsVegetable() {
                                             />
                                         </div>
                                         <div className="col-6">
-                                            <button className="btn btn-secondary w-100 py-3" type="submit">
+                                            <button 
+                                                className="btn btn-secondary w-100 py-3" 
+                                                type="submit"
+                                            >
                                                 Leave Your Comment
                                             </button>
                                         </div>
@@ -113,5 +149,5 @@ export default function DetailsVegetable() {
                 </div>
             </div>
         </>
-    )
+    );
 }
