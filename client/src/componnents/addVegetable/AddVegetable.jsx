@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useCreateVegetable } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
 import { validateProductForm } from '../../utils/validationUtils';
+import { useLoading } from "../common/loading/Loading";
+import { useToast } from "../common/toast/Toast";
 import styles from '../../../css/AddProduct.module.css';
 
 const initialValues = {
@@ -16,13 +18,13 @@ export default function AddVegetable() {
     const createVegetable = useCreateVegetable();
     const [errors, setErrors] = useState({});
     const [serverError, setServerError] = useState('');
+    const { showLoading, hideLoading } = useLoading();
+    const showToast = useToast();
 
     const createHandler = async (values) => {
-        // Reset errors
         setErrors({});
         setServerError('');
 
-        // Validate form
         const validationErrors = validateProductForm(values);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -30,10 +32,15 @@ export default function AddVegetable() {
         }
 
         try {
+            showLoading();
             const { _id: vegetableId } = await createVegetable(values);
+            showToast('Vegetable created successfully!', 'success');
             navigate(`/vegetables/${vegetableId}/details`);
         } catch (err) {
             setServerError(err.message);
+            showToast(err.message, 'error');
+        } finally {
+            hideLoading();
         }
     };
 
