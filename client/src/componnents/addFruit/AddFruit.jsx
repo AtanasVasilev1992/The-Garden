@@ -1,8 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import { useCreateFruit } from '../../hooks/useFruits';
-import { useForm } from '../../hooks/useForm';
+import { useCreateFruit } from "../../hooks/useFruits";
+import { useForm } from "../../hooks/useForm";
 import { validateProductForm } from '../../utils/validationUtils';
+import { useLoading } from "../common/loading/Loading";
+import { useToast } from "../common/toast/Toast";
 import styles from '../../../css/AddProduct.module.css';
 
 const initialValues = {
@@ -16,13 +18,13 @@ export default function AddFruit() {
     const createFruit = useCreateFruit();
     const [errors, setErrors] = useState({});
     const [serverError, setServerError] = useState('');
+    const { showLoading, hideLoading } = useLoading();
+    const showToast = useToast();
 
     const createHandler = async (values) => {
-        // Reset errors
         setErrors({});
         setServerError('');
 
-        // Validate form
         const validationErrors = validateProductForm(values);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -30,10 +32,15 @@ export default function AddFruit() {
         }
 
         try {
+            showLoading();
             const { _id: fruitId } = await createFruit(values);
+            showToast('Fruit created successfully!', 'success');
             navigate(`/fruits/${fruitId}/details`);
         } catch (err) {
             setServerError(err.message);
+            showToast(err.message, 'error');
+        } finally {
+            hideLoading();
         }
     };
 
