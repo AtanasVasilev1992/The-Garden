@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { useGetOneVegetables } from "../../hooks/useVegetables";
 import { useForm } from "../../hooks/useForm";
 import { validateProductForm } from '../../utils/validationUtils';
+import { useLoading } from "../common/loading/Loading";
+import { useToast } from "../common/toast/Toast";
+import LoadingSpinner from "../common/loadingSpinner/LoadingSpinner";
 import vegetablesApi from "../../api/vegetables-api";
 import styles from '../../../css/EditProduct.module.css';
 
@@ -12,6 +15,8 @@ export default function EditVegetable() {
     const [vegetable] = useGetOneVegetables(vegetableId);
     const [errors, setErrors] = useState({});
     const [serverError, setServerError] = useState('');
+    const { showLoading, hideLoading } = useLoading();
+    const showToast = useToast();
 
     const editHandler = async (values) => {
         setErrors({});
@@ -24,10 +29,15 @@ export default function EditVegetable() {
         }
 
         try {
+            showLoading();
             await vegetablesApi.update(vegetableId, values);
+            showToast('Vegetable updated successfully!', 'success');
             navigate(`/vegetables/${vegetableId}/details`);
         } catch (err) {
             setServerError(err.message);
+            showToast(err.message, 'error');
+        } finally {
+            hideLoading();
         }
     };
 
@@ -36,6 +46,10 @@ export default function EditVegetable() {
         changeHandler,
         submitHandler,
     } = useForm(vegetable, editHandler, true);
+
+    if (!vegetable) {
+        return <LoadingSpinner />;
+    }
 
     return (
         <div className={styles.editProductContainer}>
